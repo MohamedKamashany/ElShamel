@@ -1,0 +1,2 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AROTPTextField.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaceholderTextView.framework

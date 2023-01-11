@@ -1,0 +1,6 @@
+framework module AROTPTextField {
+  umbrella header "AROTPTextField-umbrella.h"
+
+  export *
+  module * { export * }
+}

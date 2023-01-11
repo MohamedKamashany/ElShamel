@@ -1,0 +1,20 @@
+PODS:
+  - AROTPTextField (0.0.2)
+  - PlaceholderTextView (0.3.0)
+
+DEPENDENCIES:
+  - AROTPTextField
+  - PlaceholderTextView
+
+SPEC REPOS:
+  trunk:
+    - AROTPTextField
+    - PlaceholderTextView
+
+SPEC CHECKSUMS:
+  AROTPTextField: f41284a3a223bb39af94c55d255f456de117c111
+  PlaceholderTextView: ffca9f176be00ab3090e2191e6908dabf3dbdada
+
+PODFILE CHECKSUM: afca0f7a2ab3c3f426b5642dfec1db9ca1f13dd6
+
+COCOAPODS: 1.11.3

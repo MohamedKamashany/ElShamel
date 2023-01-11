@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="NotificationTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="96" id="KGk-i7-Jjw" customClass="NotificationTableViewCell" customModule="Elshamel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="504" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="504" height="95"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="US6-Gc-QkO">
+                        <rect key="frame" x="0.0" y="3" width="504" height="92"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alarm clock (1)" translatesAutoresizingMaskIntoConstraints="NO" id="TN4-vi-zcw">
+                                <rect key="frame" x="448" y="26" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="no1-Ce-AYi"/>
+                                    <constraint firstAttribute="width" constant="40" id="yOR-nJ-OCU"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لم تحدد وسلية الدفع بعد" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG4-7P-MOR">
+                                <rect key="frame" x="118" y="26" width="310" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="u2G-ug-m3c"/>
+                                    <constraint firstAttribute="height" constant="20.5" id="zlU-zr-G9n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVR-Mh-L4m">
+                                <rect key="frame" x="16" y="27" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="66o-H2-CgV"/>
+                                    <constraint firstAttribute="height" constant="38" id="ZTS-xJ-5eM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="Exit"/>
+                                <connections>
+                                    <action selector="exitBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1K6-pW-nUR"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0833 AM" translatesAutoresizingMaskIntoConstraints="NO" id="XjM-o3-BaA">
+                                <rect key="frame" x="378" y="51.5" width="50" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="BwQ-RP-pfu"/>
+                                    <constraint firstAttribute="width" constant="50" id="Zo7-Bi-7sB"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99999994039999995" green="0.99999994039999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TN4-vi-zcw" firstAttribute="leading" secondItem="yG4-7P-MOR" secondAttribute="trailing" constant="20" id="N2K-lP-d8v"/>
+                            <constraint firstAttribute="trailing" secondItem="TN4-vi-zcw" secondAttribute="trailing" constant="16" id="Qiz-jo-0MH"/>
+                            <constraint firstItem="TN4-vi-zcw" firstAttribute="centerY" secondItem="US6-Gc-QkO" secondAttribute="centerY" id="SU8-Fu-xBs"/>
+                            <constraint firstItem="XjM-o3-BaA" firstAttribute="trailing" secondItem="yG4-7P-MOR" secondAttribute="trailing" id="aK3-8C-NrO"/>
+                            <constraint firstItem="yG4-7P-MOR" firstAttribute="centerY" secondItem="US6-Gc-QkO" secondAttribute="centerY" constant="-10" id="bdc-1h-hat"/>
+                            <constraint firstItem="rVR-Mh-L4m" firstAttribute="leading" secondItem="US6-Gc-QkO" secondAttribute="leading" constant="16" id="hgz-cZ-t7o"/>
+                            <constraint firstItem="rVR-Mh-L4m" firstAttribute="centerY" secondItem="US6-Gc-QkO" secondAttribute="centerY" id="mNJ-oa-7x9"/>
+                            <constraint firstItem="XjM-o3-BaA" firstAttribute="top" secondItem="yG4-7P-MOR" secondAttribute="bottom" constant="5" id="r6v-f6-q67"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="US6-Gc-QkO" secondAttribute="trailing" id="1MX-xq-28T"/>
+                    <constraint firstItem="US6-Gc-QkO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NNX-t5-cWD"/>
+                    <constraint firstItem="US6-Gc-QkO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="fo9-lk-XWV"/>
+                    <constraint firstAttribute="bottom" secondItem="US6-Gc-QkO" secondAttribute="bottom" id="zwt-0w-4yA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="containerView" destination="US6-Gc-QkO" id="KXD-No-2Zz"/>
+                <outlet property="exitButton" destination="rVR-Mh-L4m" id="WA2-Px-Rhh"/>
+                <outlet property="notificationImageVIew" destination="TN4-vi-zcw" id="eWQ-sS-RsW"/>
+                <outlet property="notificationLable" destination="yG4-7P-MOR" id="G3E-M3-xAU"/>
+                <outlet property="timeLbl" destination="XjM-o3-BaA" id="NKj-U6-Db6"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="94.754464285714278"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="0833 AM" width="50" height="23"/>
+        <image name="Exit" width="13.5" height="13.5"/>
+        <image name="alarm clock (1)" width="32" height="36"/>
+    </resources>
+</document>

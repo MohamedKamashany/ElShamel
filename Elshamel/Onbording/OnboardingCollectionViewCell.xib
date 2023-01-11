@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="Eg2-2p-5pv" customClass="OnboardingCollectionViewCell" customModule="Elshamel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="588"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="N8i-fK-aOc">
+                <rect key="frame" x="0.0" y="0.0" width="408" height="588"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JH-l1-tCe">
+                        <rect key="frame" x="0.0" y="0.0" width="408" height="588"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سهولة التطبيق" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpK-GD-sxU">
+                                <rect key="frame" x="116" y="30" width="176.5" height="39.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="176.5" id="3H6-lS-8Fo"/>
+                                    <constraint firstAttribute="height" constant="39.5" id="7XH-5b-o6P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تطبيق الشامل اونلاين سهل بواجه مستخدم ذكيه تتيح لك الوصول للمعلومه بشك سريع وبدون اخطاء" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmp-Hc-4s1">
+                                <rect key="frame" x="20" y="78" width="368" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="Pno-4P-lr3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.68235294120000001" green="0.87843137250000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qKx-i8-nun">
+                                <rect key="frame" x="0.0" y="144" width="408" height="444"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Tmp-Hc-4s1" firstAttribute="top" secondItem="LpK-GD-sxU" secondAttribute="bottom" constant="8.5" id="0VK-6a-QTl"/>
+                            <constraint firstAttribute="trailing" secondItem="Tmp-Hc-4s1" secondAttribute="trailing" constant="20" id="16e-rO-ghT"/>
+                            <constraint firstItem="Tmp-Hc-4s1" firstAttribute="leading" secondItem="1JH-l1-tCe" secondAttribute="leading" constant="20" id="1Qs-RF-bb3"/>
+                            <constraint firstItem="qKx-i8-nun" firstAttribute="top" secondItem="Tmp-Hc-4s1" secondAttribute="bottom" constant="30" id="NsK-Ny-hLR"/>
+                            <constraint firstAttribute="trailing" secondItem="qKx-i8-nun" secondAttribute="trailing" id="SAS-uI-8dk"/>
+                            <constraint firstItem="qKx-i8-nun" firstAttribute="leading" secondItem="1JH-l1-tCe" secondAttribute="leading" id="TvD-6V-9ka"/>
+                            <constraint firstAttribute="bottom" secondItem="qKx-i8-nun" secondAttribute="bottom" id="fi5-dq-U3p"/>
+                            <constraint firstItem="LpK-GD-sxU" firstAttribute="top" secondItem="1JH-l1-tCe" secondAttribute="top" constant="30" id="gqJ-b2-BpR"/>
+                            <constraint firstItem="LpK-GD-sxU" firstAttribute="centerX" secondItem="1JH-l1-tCe" secondAttribute="centerX" id="ks6-s0-WBR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1JH-l1-tCe" firstAttribute="top" secondItem="N8i-fK-aOc" secondAttribute="top" id="7bJ-fM-mmk"/>
+                    <constraint firstAttribute="trailing" secondItem="1JH-l1-tCe" secondAttribute="trailing" id="Cze-Ne-JYW"/>
+                    <constraint firstItem="1JH-l1-tCe" firstAttribute="leading" secondItem="N8i-fK-aOc" secondAttribute="leading" id="LDi-72-tOM"/>
+                    <constraint firstAttribute="bottom" secondItem="1JH-l1-tCe" secondAttribute="bottom" id="keY-Ij-KcE"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <size key="customSize" width="408" height="588"/>
+            <connections>
+                <outlet property="descriptionLbl" destination="Tmp-Hc-4s1" id="qai-QW-UL3"/>
+                <outlet property="mainLbl" destination="LpK-GD-sxU" id="QVW-1F-zoX"/>
+                <outlet property="slideImage" destination="qKx-i8-nun" id="R2X-YJ-sD8"/>
+            </connections>
+            <point key="canvasLocation" x="95.652173913043484" y="520.98214285714289"/>
+        </collectionViewCell>
+    </objects>
+</document>
