@@ -44,9 +44,7 @@ class ExamResultViewController: UIViewController,UITableViewDelegate, UITableVie
     }
     
     @IBAction func backBtn(_ sender: Any) {
-        let storybord = UIStoryboard(name: "Main", bundle: nil)
-        let destination = storybord.instantiateViewController(withIdentifier: "StudentsViewController")
-        present(destination, animated: true, completion: nil)
+       dismiss(animated: true)
     }
     
     @IBAction func addBtn(_ sender: Any) {

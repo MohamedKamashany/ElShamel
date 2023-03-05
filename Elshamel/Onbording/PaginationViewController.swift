@@ -40,7 +40,9 @@ class PaginationViewController: UIViewController {
     
     @IBAction func skipBtn(_ sender: Any) {
         if currentPage == slides.count - 1 {
-            print("Go To the next page")
+            let storybord = UIStoryboard(name: "Main", bundle: nil)
+            let destinstion = storybord.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            present(destinstion, animated: true, completion: nil)
         } else {
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)
@@ -54,12 +56,14 @@ class PaginationViewController: UIViewController {
 //        }
 }
 //__________________________________________________________________________________
+
 struct OnbordingSlids {
     let title: String
     let descripition: String
     let image: UIImage
 }
 //_____________________________________________________________________________________
+
 extension PaginationViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
