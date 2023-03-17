@@ -18,6 +18,7 @@ class SplashIneractor: SplashIneractorProtocol {
     var presenter: SplashPresenterProtocol?
     
     func getSplashData() {
+        // hello world comment
         if NetworkManager.shared.isInternetAvailable() {
             presenter?.presentLoader()
             NetworkManager.shared.processReq(url: .getSplashData, method: .get, returnType: SplashModel.self, completionHandler: { [weak self] result in
