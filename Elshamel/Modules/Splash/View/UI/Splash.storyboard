@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T7u-NQ-fJx">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="vVm-TK-tGz">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" modalPresentationStyle="fullScreen" id="T7u-NQ-fJx" customClass="SplashViewController" customModule="Elshamel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qRg-fy-izE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="nor-yO-T45">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="nhV-BR-10e">
+                                <rect key="frame" x="72" y="321.5" width="270" height="253"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="fhH-cA-2nd"/>
+                                    <constraint firstAttribute="height" constant="253" id="kBJ-yT-MA1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fj-Lm-we9">
+                                <rect key="frame" x="20" y="664.5" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="t2Y-qA-kal"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dMy-Jz-k75">
+                                <rect key="frame" x="197" y="594.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Dic-ZJ-Q9Y"/>
+                                    <constraint firstAttribute="height" constant="20" id="g22-Gi-hIh"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MKJ-M3-huT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nhV-BR-10e" firstAttribute="centerX" secondItem="nor-yO-T45" secondAttribute="centerX" id="0DO-tw-hC6"/>
+                            <constraint firstItem="MKJ-M3-huT" firstAttribute="trailing" secondItem="1fj-Lm-we9" secondAttribute="trailing" constant="20" id="3ui-7U-BEG"/>
+                            <constraint firstItem="nor-yO-T45" firstAttribute="bottom" secondItem="qRg-fy-izE" secondAttribute="bottom" id="Dqx-JQ-OFU"/>
+                            <constraint firstItem="nor-yO-T45" firstAttribute="trailing" secondItem="qRg-fy-izE" secondAttribute="trailing" id="Ebb-IM-Sgx"/>
+                            <constraint firstItem="nor-yO-T45" firstAttribute="top" secondItem="qRg-fy-izE" secondAttribute="top" id="Sy5-rR-UrH"/>
+                            <constraint firstItem="dMy-Jz-k75" firstAttribute="top" secondItem="nhV-BR-10e" secondAttribute="bottom" constant="20" id="VPC-PB-0Wh"/>
+                            <constraint firstItem="nor-yO-T45" firstAttribute="leading" secondItem="qRg-fy-izE" secondAttribute="leading" id="pxo-M1-fgJ"/>
+                            <constraint firstItem="dMy-Jz-k75" firstAttribute="centerX" secondItem="MKJ-M3-huT" secondAttribute="centerX" id="qrt-OC-48q"/>
+                            <constraint firstItem="nhV-BR-10e" firstAttribute="centerY" secondItem="nor-yO-T45" secondAttribute="centerY" id="rSc-fc-B07"/>
+                            <constraint firstItem="1fj-Lm-we9" firstAttribute="leading" secondItem="MKJ-M3-huT" secondAttribute="leading" constant="20" id="tE9-9U-Plh"/>
+                            <constraint firstItem="1fj-Lm-we9" firstAttribute="top" secondItem="dMy-Jz-k75" secondAttribute="bottom" constant="50" id="tdn-fc-VjY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2NL-3l-aZ9"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="dMy-Jz-k75" id="JD0-SB-jQQ"/>
+                        <outlet property="errorLabel" destination="1fj-Lm-we9" id="TKa-67-Zsn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tm5-JW-N9d" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1816.8224299065419" y="-115.33477321814256"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image" width="344" height="344"/>
+        <image name="Image-1" width="414" height="899.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

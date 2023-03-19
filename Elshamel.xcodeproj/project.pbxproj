@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271D020829C67B44004A7D5E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271D020529C67B44004A7D5E /* Splash.storyboard */; };
+		271D020929C67B44004A7D5E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271D020729C67B44004A7D5E /* SplashViewController.swift */; };
 		27DB3B3C29B4E9A200F54F52 /* NetworkErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB3B3829B4E9A200F54F52 /* NetworkErrorType.swift */; };
 		27DB3B3D29B4E9A200F54F52 /* PersistentDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB3B3929B4E9A200F54F52 /* PersistentDataHelper.swift */; };
 		27DB3B3E29B4E9A200F54F52 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB3B3A29B4E9A200F54F52 /* NetworkManager.swift */; };
@@ -18,7 +20,6 @@
 		7E6BB2821833B321C4FE98A2 /* Pods_Elshamel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A015CACFEB2DF5AF9AE02BD /* Pods_Elshamel.framework */; };
 		D471EA21295C615700D4C1EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471EA20295C615700D4C1EB /* AppDelegate.swift */; };
 		D471EA23295C615700D4C1EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471EA22295C615700D4C1EB /* SceneDelegate.swift */; };
-		D471EA25295C615700D4C1EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471EA24295C615700D4C1EB /* ViewController.swift */; };
 		D471EA28295C615700D4C1EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D471EA26295C615700D4C1EB /* Main.storyboard */; };
 		D471EA2A295C615A00D4C1EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D471EA29295C615A00D4C1EB /* Assets.xcassets */; };
 		D471EA2D295C615A00D4C1EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D471EA2B295C615A00D4C1EB /* LaunchScreen.storyboard */; };
@@ -61,7 +62,6 @@
 		D48707BA297052780006299B /* QuestionsBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48707B8297052780006299B /* QuestionsBankTableViewCell.xib */; };
 		D48707BC29705E0A0006299B /* QuestionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48707BB29705E0A0006299B /* QuestionsResponse.swift */; };
 		D487342B296DC99100C73FC0 /* PaginationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D487342A296DC99100C73FC0 /* PaginationViewController.swift */; };
-		D488D7C529913CAB00376BB1 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D488D7C429913CAB00376BB1 /* SplashView.storyboard */; };
 		D48AA1CD29782A3A000EC87A /* AnswersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48AA1CB29782A3A000EC87A /* AnswersTableViewCell.swift */; };
 		D48AA1CE29782A3A000EC87A /* AnswersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48AA1CC29782A3A000EC87A /* AnswersTableViewCell.xib */; };
 		D48AA1D529782E39000EC87A /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48AA1D329782E39000EC87A /* AnswerCollectionViewCell.swift */; };
@@ -88,6 +88,9 @@
 		D48B04CA298031DA000C9996 /* FollowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48B04C8298031DA000C9996 /* FollowCollectionViewCell.xib */; };
 		D4935AC6297D5A980028AF2B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4935AC5297D5A980028AF2B /* SideMenuViewController.swift */; };
 		D4935AC8297D5AAD0028AF2B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4935AC7297D5AAD0028AF2B /* MainViewController.swift */; };
+		D49EC02029C4C075009ADAA3 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EC01F29C4C075009ADAA3 /* SplashInteractor.swift */; };
+		D49EC02229C4C157009ADAA3 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EC02129C4C157009ADAA3 /* SplashPresenter.swift */; };
+		D49EC02529C4C726009ADAA3 /* SplashDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EC02429C4C726009ADAA3 /* SplashDataModel.swift */; };
 		D4F30613298442C4008D8018 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F30612298442C4008D8018 /* SideMenuModel.swift */; };
 		D4F306162984430E008D8018 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F306142984430E008D8018 /* SideMenuTableViewCell.swift */; };
 		D4F306172984430E008D8018 /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F306152984430E008D8018 /* SideMenuTableViewCell.xib */; };
@@ -103,6 +106,8 @@
 
 /* Begin PBXFileReference section */
 		0AF8B8A3AA2DE9684164077C /* Pods-Elshamel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elshamel.release.xcconfig"; path = "Target Support Files/Pods-Elshamel/Pods-Elshamel.release.xcconfig"; sourceTree = "<group>"; };
+		271D020529C67B44004A7D5E /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		271D020729C67B44004A7D5E /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		27DB3B3829B4E9A200F54F52 /* NetworkErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorType.swift; sourceTree = "<group>"; };
 		27DB3B3929B4E9A200F54F52 /* PersistentDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentDataHelper.swift; sourceTree = "<group>"; };
 		27DB3B3A29B4E9A200F54F52 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -116,7 +121,6 @@
 		D471EA1D295C615700D4C1EB /* Elshamel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elshamel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D471EA20295C615700D4C1EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D471EA22295C615700D4C1EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D471EA24295C615700D4C1EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D471EA27295C615700D4C1EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D471EA29295C615A00D4C1EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D471EA2C295C615A00D4C1EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -160,7 +164,6 @@
 		D48707B8297052780006299B /* QuestionsBankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionsBankTableViewCell.xib; sourceTree = "<group>"; };
 		D48707BB29705E0A0006299B /* QuestionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsResponse.swift; sourceTree = "<group>"; };
 		D487342A296DC99100C73FC0 /* PaginationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationViewController.swift; sourceTree = "<group>"; };
-		D488D7C429913CAB00376BB1 /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		D48AA1CB29782A3A000EC87A /* AnswersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersTableViewCell.swift; sourceTree = "<group>"; };
 		D48AA1CC29782A3A000EC87A /* AnswersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswersTableViewCell.xib; sourceTree = "<group>"; };
 		D48AA1D329782E39000EC87A /* AnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -187,6 +190,9 @@
 		D48B04C8298031DA000C9996 /* FollowCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowCollectionViewCell.xib; sourceTree = "<group>"; };
 		D4935AC5297D5A980028AF2B /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		D4935AC7297D5AAD0028AF2B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D49EC01F29C4C075009ADAA3 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
+		D49EC02129C4C157009ADAA3 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		D49EC02429C4C726009ADAA3 /* SplashDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashDataModel.swift; sourceTree = "<group>"; };
 		D4F30612298442C4008D8018 /* SideMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
 		D4F306142984430E008D8018 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		D4F306152984430E008D8018 /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
@@ -212,6 +218,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		271D020429C67B44004A7D5E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				271D020529C67B44004A7D5E /* Splash.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		271D020629C67B44004A7D5E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				271D020729C67B44004A7D5E /* SplashViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		271D020A29C67F83004A7D5E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D475E1D1296EFE220096A08A /* Onbording */,
+				D488D7C029913C6600376BB1 /* Splash */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		27DB3B3729B4E9A200F54F52 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,13 +325,12 @@
 		D471EA1F295C615700D4C1EB /* Elshamel */ = {
 			isa = PBXGroup;
 			children = (
+				271D020A29C67F83004A7D5E /* Modules */,
 				27DB3B4029B4EB9F00F54F52 /* Shared */,
 				27DB3B3729B4E9A200F54F52 /* NetworkManager */,
-				D488D7C029913C6600376BB1 /* Splash */,
 				D4935ACB297D61780028AF2B /* SideMenuController */,
 				D471EA20295C615700D4C1EB /* AppDelegate.swift */,
 				D471EA22295C615700D4C1EB /* SceneDelegate.swift */,
-				D475E1D1296EFE220096A08A /* Onbording */,
 				D48D78BD299E7343009F099B /* Login */,
 				D48D78BE299E7354009F099B /* Register */,
 				D471EA26295C615700D4C1EB /* Main.storyboard */,
@@ -356,8 +386,10 @@
 		D488D7C029913C6600376BB1 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				D488D7C329913C8300376BB1 /* Controller */,
-				D488D7C229913C7D00376BB1 /* View */,
+				D49EC02329C4C703009ADAA3 /* Model */,
+				D49EC01D29C4BE16009ADAA3 /* Interactor */,
+				D49EC01C29C4BE12009ADAA3 /* Presenter */,
+				D49EC01B29C4BE0E009ADAA3 /* View */,
 				D488D7C129913C6F00376BB1 /* Model */,
 			);
 			path = Splash;
@@ -368,22 +400,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D488D7C229913C7D00376BB1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D488D7C429913CAB00376BB1 /* SplashView.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D488D7C329913C8300376BB1 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D471EA24295C615700D4C1EB /* ViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		D48B04B029801844000C9996 /* StudentView */ = {
@@ -498,6 +514,39 @@
 			path = SideMenuController;
 			sourceTree = "<group>";
 		};
+		D49EC01B29C4BE0E009ADAA3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				271D020629C67B44004A7D5E /* Controller */,
+				271D020429C67B44004A7D5E /* UI */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D49EC01C29C4BE12009ADAA3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D49EC02129C4C157009ADAA3 /* SplashPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D49EC01D29C4BE16009ADAA3 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D49EC01F29C4C075009ADAA3 /* SplashInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D49EC02329C4C703009ADAA3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D49EC02429C4C726009ADAA3 /* SplashDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -572,7 +621,7 @@
 				D48B04B429801886000C9996 /* SubjectsTableViewCell.xib in Resources */,
 				D47538DE296B0C7B002DBECB /* VideoTableViewCell.xib in Resources */,
 				D4FD8491297EF29C0069AD00 /* ExamsResultTableViewCell.xib in Resources */,
-				D488D7C529913CAB00376BB1 /* SplashView.storyboard in Resources */,
+				271D020829C67B44004A7D5E /* Splash.storyboard in Resources */,
 				D4FD8495297EF3520069AD00 /* ExamsResultCollectionViewCell.xib in Resources */,
 				D486DA392965C36B0088ECE9 /* StudentTableViewCell.xib in Resources */,
 				D48B04C229802AE9000C9996 /* VideoCollectionViewCell.xib in Resources */,
@@ -650,7 +699,6 @@
 				D475E1D8296F0F1E0096A08A /* OnboardingCollectionViewCell.swift in Sources */,
 				D471EA39295C6AC900D4C1EB /* LoginViewController.swift in Sources */,
 				D48B04B829801DDD000C9996 /* SubjectsCollectionViewCell.swift in Sources */,
-				D471EA25295C615700D4C1EB /* ViewController.swift in Sources */,
 				D4F30613298442C4008D8018 /* SideMenuModel.swift in Sources */,
 				D4F306162984430E008D8018 /* SideMenuTableViewCell.swift in Sources */,
 				D48707B629704BA80006299B /* QuestionsBankViewController.swift in Sources */,
@@ -660,15 +708,18 @@
 				D48707B9297052780006299B /* QuestionsBankTableViewCell.swift in Sources */,
 				27DB3B4329B4EBB700F54F52 /* UserData.swift in Sources */,
 				27EFB4BE29ABA832008F8199 /* LoginPresenter.swift in Sources */,
+				271D020929C67B44004A7D5E /* SplashViewController.swift in Sources */,
 				D47BC885297ECDDF005E3631 /* MyStudentsTableViewCell.swift in Sources */,
 				D48AFF222976E2EC00668F7E /* User.swift in Sources */,
 				D48B04BC29801F95000C9996 /* NewTableViewCell.swift in Sources */,
 				D48B04C9298031DA000C9996 /* FollowCollectionViewCell.swift in Sources */,
+				D49EC02229C4C157009ADAA3 /* SplashPresenter.swift in Sources */,
 				D48AFF1C2976C68700668F7E /* AnswerLableTableViewCell.swift in Sources */,
 				D47772B3295DB0E4007DD23A /* RegisterViewController.swift in Sources */,
 				D47BC888297ECE5E005E3631 /* TeacherViewController.swift in Sources */,
 				D4FD848C297EEC3A0069AD00 /* ExamsCollectionViewCell.swift in Sources */,
 				D481B02829674D3100DA60F0 /* NotificationTableViewCell.swift in Sources */,
+				D49EC02529C4C726009ADAA3 /* SplashDataModel.swift in Sources */,
 				D477C8442977DF3F008340D9 /* AnswerImageView.swift in Sources */,
 				D48707B429703AEC0006299B /* SubjectViewController.swift in Sources */,
 				D4935AC8297D5AAD0028AF2B /* MainViewController.swift in Sources */,
@@ -696,6 +747,7 @@
 				D47772B0295DB099007DD23A /* RegisterTableViewCell.swift in Sources */,
 				D4776364296C63DB00509CD8 /* SendMessageViewController.swift in Sources */,
 				D486DA382965C36B0088ECE9 /* StudentTableViewCell.swift in Sources */,
+				D49EC02029C4C075009ADAA3 /* SplashInteractor.swift in Sources */,
 				D471EA3C295C6B2000D4C1EB /* LoginTableViewCell.swift in Sources */,
 				D4FD8494297EF3520069AD00 /* ExamsResultCollectionViewCell.swift in Sources */,
 				D481B0222966FFBD00DA60F0 /* ExamResultTableViewCell.swift in Sources */,
@@ -854,7 +906,7 @@
 				INFOPLIST_FILE = Elshamel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -882,7 +934,7 @@
 				INFOPLIST_FILE = Elshamel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

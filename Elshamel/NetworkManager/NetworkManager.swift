@@ -40,39 +40,39 @@ extension NetworkManager {
         if isInternetAvailable() {
             var fullParameters:Dictionary<String,String> = [:]
             
-            if url == .generateToken {
-                fullParameters = ["public_key":"akooon"]
-            }
+//            if url == .generateToken {
+//                fullParameters = ["public_key":"akooon"]
+//            }
+//
+//            if ((url == .login) || ((url == .register) && (method == .post))) {
+//                if let fcm_token = PushNotificationsPresenter().getToken() {
+//                    fullParameters["fcm_token"] = fcm_token
+//                }
+//            }
             
-            if ((url == .login) || ((url == .register) && (method == .post))) {
-                if let fcm_token = PushNotificationsPresenter().getToken() {
-                    fullParameters["fcm_token"] = fcm_token
-                }
-            }
+//            if let requestParams = bodyParams {
+//                for (key,value) in requestParams {
+//                    fullParameters[key] = value as? String ?? ""
+//                }
+//            }
+//
             
-            if let requestParams = bodyParams {
-                for (key,value) in requestParams {
-                    fullParameters[key] = value as? String ?? ""
-                }
-            }
-            
-            
-            var fullUrl = NetworkManager.shared.getFullUrl(baseUrl: BasUrls.base, endPoint: url, parameters: fullParameters)
+            let fullUrl = NetworkManager.shared.getFullUrl(baseUrl: BasUrls.base, endPoint: url, parameters: fullParameters)
             
             var request = URLRequest(url: URL(string: fullUrl)!,timeoutInterval: Double.infinity)
-            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-            request.addValue("PHPSESSID=d7399284f64f45ab01d9412df45d3d34", forHTTPHeaderField: "Cookie")
+//            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//            request.addValue("PHPSESSID=d7399284f64f45ab01d9412df45d3d34", forHTTPHeaderField: "Cookie")
             
-            request.httpMethod = "DELETE"
+            request.httpMethod = method.rawValue
             
-            if let deleteParameters = bodyParams {
-                var parameters:String = ""
-                for (key, value) in deleteParameters {
-                    parameters = "\(key)=\(value)"
-                }
-                let postData =  parameters.data(using: .utf8)
-                request.httpBody = postData
-            }
+//            if let deleteParameters = bodyParams {
+//                var parameters:String = ""
+//                for (key, value) in deleteParameters {
+//                    parameters = "\(key)=\(value)"
+//                }
+//                let postData =  parameters.data(using: .utf8)
+//                request.httpBody = postData
+//            }
             
             
             URLSession.shared.dataTask(with: request) { data, response, error in
@@ -163,7 +163,7 @@ extension NetworkManager {
             for key in params.keys {
                 components.queryItems?.append(URLQueryItem(name: key, value: params[key]!))
             }
-            return (components.url?.absoluteString.removingPercentEncoding?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? urlString)
+            //return (components.url?.absoluteString.removingPercentEncoding?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? urlString)
         }
         return urlString
     }
