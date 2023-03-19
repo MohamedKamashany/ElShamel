@@ -10,7 +10,7 @@ import Foundation
 class SplashModel: Codable {
     var data: SplashData?
     var message: String?
-    var errors: AnyObject?
+//    var errors: AnyObject?
 }
 
 class SplashData: Codable {

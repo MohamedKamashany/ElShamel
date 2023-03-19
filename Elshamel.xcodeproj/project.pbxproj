@@ -62,6 +62,8 @@
 		D48707BA297052780006299B /* QuestionsBankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48707B8297052780006299B /* QuestionsBankTableViewCell.xib */; };
 		D48707BC29705E0A0006299B /* QuestionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48707BB29705E0A0006299B /* QuestionsResponse.swift */; };
 		D487342B296DC99100C73FC0 /* PaginationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D487342A296DC99100C73FC0 /* PaginationViewController.swift */; };
+		D487B6B829C729E100DF270C /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D487B6B729C729E100DF270C /* LoginInteractor.swift */; };
+		D487B6BA29C72FCE00DF270C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D487B6B929C72FCE00DF270C /* Login.storyboard */; };
 		D48AA1CD29782A3A000EC87A /* AnswersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48AA1CB29782A3A000EC87A /* AnswersTableViewCell.swift */; };
 		D48AA1CE29782A3A000EC87A /* AnswersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48AA1CC29782A3A000EC87A /* AnswersTableViewCell.xib */; };
 		D48AA1D529782E39000EC87A /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48AA1D329782E39000EC87A /* AnswerCollectionViewCell.swift */; };
@@ -164,6 +166,8 @@
 		D48707B8297052780006299B /* QuestionsBankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionsBankTableViewCell.xib; sourceTree = "<group>"; };
 		D48707BB29705E0A0006299B /* QuestionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsResponse.swift; sourceTree = "<group>"; };
 		D487342A296DC99100C73FC0 /* PaginationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationViewController.swift; sourceTree = "<group>"; };
+		D487B6B729C729E100DF270C /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		D487B6B929C72FCE00DF270C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D48AA1CB29782A3A000EC87A /* AnswersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersTableViewCell.swift; sourceTree = "<group>"; };
 		D48AA1CC29782A3A000EC87A /* AnswersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswersTableViewCell.xib; sourceTree = "<group>"; };
 		D48AA1D329782E39000EC87A /* AnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -237,8 +241,9 @@
 		271D020A29C67F83004A7D5E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				D475E1D1296EFE220096A08A /* Onbording */,
 				D488D7C029913C6600376BB1 /* Splash */,
+				D475E1D1296EFE220096A08A /* Onbording */,
+				D48D78BD299E7343009F099B /* Login */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -325,13 +330,12 @@
 		D471EA1F295C615700D4C1EB /* Elshamel */ = {
 			isa = PBXGroup;
 			children = (
+				D471EA20295C615700D4C1EB /* AppDelegate.swift */,
+				D471EA22295C615700D4C1EB /* SceneDelegate.swift */,
 				271D020A29C67F83004A7D5E /* Modules */,
 				27DB3B4029B4EB9F00F54F52 /* Shared */,
 				27DB3B3729B4E9A200F54F52 /* NetworkManager */,
 				D4935ACB297D61780028AF2B /* SideMenuController */,
-				D471EA20295C615700D4C1EB /* AppDelegate.swift */,
-				D471EA22295C615700D4C1EB /* SceneDelegate.swift */,
-				D48D78BD299E7343009F099B /* Login */,
 				D48D78BE299E7354009F099B /* Register */,
 				D471EA26295C615700D4C1EB /* Main.storyboard */,
 				D48B04B029801844000C9996 /* StudentView */,
@@ -381,6 +385,49 @@
 				D475E1D7296F0F1E0096A08A /* OnboardingCollectionViewCell.xib */,
 			);
 			path = Onbording;
+			sourceTree = "<group>";
+		};
+		D487B6B229C7245100DF270C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D487B6B729C729E100DF270C /* LoginInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D487B6B329C7246200DF270C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				27EFB4BD29ABA832008F8199 /* LoginPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D487B6B429C7248D00DF270C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D487B6B529C724E400DF270C /* Controller */,
+				D487B6B629C724F100DF270C /* UI */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D487B6B529C724E400DF270C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D471EA38295C6AC900D4C1EB /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D487B6B629C724F100DF270C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D487B6B929C72FCE00DF270C /* Login.storyboard */,
+				D471EA3A295C6B2000D4C1EB /* LoginTableViewCell.swift */,
+				D471EA3B295C6B2000D4C1EB /* LoginTableViewCell.xib */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		D488D7C029913C6600376BB1 /* Splash */ = {
@@ -464,10 +511,9 @@
 			isa = PBXGroup;
 			children = (
 				27EFB4BF29ABA944008F8199 /* Model */,
-				D471EA38295C6AC900D4C1EB /* LoginViewController.swift */,
-				D471EA3A295C6B2000D4C1EB /* LoginTableViewCell.swift */,
-				D471EA3B295C6B2000D4C1EB /* LoginTableViewCell.xib */,
-				27EFB4BD29ABA832008F8199 /* LoginPresenter.swift */,
+				D487B6B329C7246200DF270C /* Presenter */,
+				D487B6B229C7245100DF270C /* Interactor */,
+				D487B6B429C7248D00DF270C /* View */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -607,6 +653,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D487B6BA29C72FCE00DF270C /* Login.storyboard in Resources */,
 				D48B04B929801DDD000C9996 /* SubjectsCollectionViewCell.xib in Resources */,
 				D47BC88C297ED504005E3631 /* MyStudentsCollectionViewCell.xib in Resources */,
 				D48AA1CE29782A3A000EC87A /* AnswersTableViewCell.xib in Resources */,
@@ -694,6 +741,7 @@
 				D4FD8488297EE9330069AD00 /* ExamsTableViewCell.swift in Sources */,
 				D48B04C529802DA2000C9996 /* FollowTableViewCell.swift in Sources */,
 				D481E0B429631BA60055F6AE /* VerificationTableViewCell.swift in Sources */,
+				D487B6B829C729E100DF270C /* LoginInteractor.swift in Sources */,
 				D47538E0296B0CAB002DBECB /* VideoViewController.swift in Sources */,
 				D48AF3102979BC2F00D7EC2F /* HomeViewController.swift in Sources */,
 				D475E1D8296F0F1E0096A08A /* OnboardingCollectionViewCell.swift in Sources */,
@@ -906,7 +954,7 @@
 				INFOPLIST_FILE = Elshamel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -934,7 +982,7 @@
 				INFOPLIST_FILE = Elshamel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -8,11 +8,20 @@
 import UIKit
 import Alamofire
 
+protocol LoginViewProtocol: AnyObject, LoaderView {
+    var interactor: LoginIneractorProtocol? { get set }
+    func showErrorView(_ error:String)
+    func hideErrorView()
+}
+
 
 class LoginViewController: UIViewController {
     
+    var interactor: LoginIneractorProtocol?
+    
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var loginTableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
 //    let network = NetworkManager<Login>()
     
@@ -20,6 +29,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setUpTableView()
         self.navigationController?.navigationBar.backgroundColor = AppColors.navigationBarPrimaryColor
+        activityIndicator.isHidden = true
+        config()
     }
 
     func setUpTableView() {
@@ -27,6 +38,16 @@ class LoginViewController: UIViewController {
         loginTableView.dataSource = self
         loginTableView.register(UINib(nibName: "LoginTableViewCell", bundle: nil), forCellReuseIdentifier: "LoginTableViewCell")
         loginTableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    private func config() {
+        let presenter = LoginPresenter()
+        presenter.view = self
+        
+        let interactor = LoginInteractor()
+        interactor.presenter = presenter
+        
+        self.interactor = interactor
     }
 
 }
@@ -56,6 +77,7 @@ extension LoginViewController: loginDelegat {
     }
     
     func login() {
+        interactor?.getLoginData()
 //        network.getServices(serviceName: NetworkUtilities.loginService,
 //                            method: HTTPMethod.post,
 //                            parameters: ["email": "taha@gmail.com", "password": "12345678"],
@@ -72,3 +94,26 @@ extension LoginViewController: loginDelegat {
 //        }
     }
 }
+//----------------------------------------------------------------------------------------------------
+extension LoginViewController: LoginViewProtocol {
+     
+    func hideLoading() {
+//        activityIndicator.stopAnimating()
+    }
+    
+    func showLoading() {
+//        activityIndicator.startAnimating()
+    }
+    
+    func showErrorView(_ error: String) {
+//        errorLabel.isHidden = false
+//        errorLabel.text = error
+    }
+    
+    func hideErrorView() {
+//        errorLabel.isHidden = true
+    }
+    
+    
+}
+
