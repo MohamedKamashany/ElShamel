@@ -44,6 +44,7 @@ extension NetworkManager {
             var request = URLRequest(url: URL(string: fullUrl)!,timeoutInterval: 60)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("Bearer \(v4apiKey)", forHTTPHeaderField: "Authentication")
             do {
                 if let parameterList = bodyParams, method == .post {
                     request.httpBody = try JSONSerialization.data(withJSONObject: parameterList)   
