@@ -17,4 +17,5 @@ target 'Elshamel' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'ReachabilitySwift', '~> 5.0'
+  pod 'MBProgressHUD', '~> 1.2.0'
 end

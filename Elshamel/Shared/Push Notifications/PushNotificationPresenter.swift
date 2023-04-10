@@ -33,24 +33,24 @@ class PushNotificationsPresenter {
         var bodyParams = [String:String]()
         bodyParams["fcm_token"] = token
         
-        if NetworkManager.shared.isInternetAvailable() {
-            NetworkManager.shared.processReq(url: .register, method: .put, bodyParams: bodyParams, returnType: LoginResponse.self, completionHandler: { [weak self] (result) in
-                switch result {
-                case let .success(response):
-                    if let errors = response?.errors, errors.count > 0 {
-                        self?.saveTokenSentToBackend(isSaved: false)
-                    } else {
-                        if let responseData = response?.data, responseData.count > 0 {
-                            self?.saveTokenSentToBackend(isSaved: true)
-                        }else{
-                            self?.saveTokenSentToBackend(isSaved: false)
-                        }
-                    }
-                case .failure:
-                    self?.saveTokenSentToBackend(isSaved: false)
-                }
-            })
-        }
+//        if NetworkManager.shared.isInternetAvailable() {
+//            NetworkManager.shared.processReq(url: .register, method: .put, bodyParams: bodyParams, returnType: LoginResponse.self, completionHandler: { [weak self] (result) in
+//                switch result {
+//                case let .success(response):
+//                    if let errors = response?.errors, errors.count > 0 {
+//                        self?.saveTokenSentToBackend(isSaved: false)
+//                    } else {
+//                        if let responseData = response?.data, responseData.count > 0 {
+//                            self?.saveTokenSentToBackend(isSaved: true)
+//                        }else{
+//                            self?.saveTokenSentToBackend(isSaved: false)
+//                        }
+//                    }
+//                case .failure:
+//                    self?.saveTokenSentToBackend(isSaved: false)
+//                }
+//            })
+//        }
     }
     
     // MARK: - is user Granted Push notification permission

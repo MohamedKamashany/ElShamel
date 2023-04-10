@@ -110,6 +110,7 @@ PODS:
   - GoogleUtilities/UserDefaults (7.11.0):
     - GoogleUtilities/Logger
   - leveldb-library (1.22.1)
+  - MBProgressHUD (1.2.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -127,6 +128,7 @@ DEPENDENCIES:
   - Firebase/Database (~> 7.4)
   - Firebase/Messaging (~> 7.4)
   - Firebase/RemoteConfig (~> 7.4)
+  - MBProgressHUD (~> 1.2.0)
   - PlaceholderTextView
   - ReachabilitySwift (~> 5.0)
   - SwiftyJSON
@@ -149,6 +151,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - leveldb-library
+    - MBProgressHUD
     - nanopb
     - PlaceholderTextView
     - PromisesObjC
@@ -172,12 +175,13 @@ SPEC CHECKSUMS:
   GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PlaceholderTextView: ffca9f176be00ab3090e2191e6908dabf3dbdada
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: f0d446498a1f38080123d899a26aff6e59d23998
+PODFILE CHECKSUM: fecb7080761a3ce0b18171a5798923877a02d556
 
 COCOAPODS: 1.11.3

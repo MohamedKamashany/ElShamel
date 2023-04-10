@@ -10,9 +10,9 @@ import Alamofire
 import SwiftyJSON
 
 
-protocol loginDelegat {
+protocol loginDelegate {
     func register()
-    func login()
+    func login(email: String?, password: String?)
 }
 
 class LoginTableViewCell: UITableViewCell {
@@ -28,7 +28,7 @@ class LoginTableViewCell: UITableViewCell {
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
     
-    var delegate: loginDelegat?
+    var delegate: loginDelegate?
     var login: LoginResponse?
     
     override func awakeFromNib() {
@@ -53,7 +53,7 @@ class LoginTableViewCell: UITableViewCell {
     }
     
     @IBAction func loginBtn(_ sender: Any) {
-        delegate?.login()
+        delegate?.login(email: emailTextField.text, password: passwordTextField.text)
     }
     
     @IBAction func registerWithNameBtn(_ sender: Any) {

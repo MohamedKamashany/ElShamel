@@ -35,56 +35,34 @@ class NetworkManager {
 // MARK: - process api reqest
 
 extension NetworkManager {
-    func processReq<T: Codable>(url: EndPointUrls, method: HTTPMethod, bodyParams:[String:Any]? = nil, returnType: T.Type, headers: HTTPHeaders? = nil, params: Alamofire.Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, completionHandler: @escaping (Swift.Result<T?, NetWorkError>) -> Void) {
+    func processReq<T: Codable>(url: EndPointUrls, method: HTTPMethod, bodyParams:[String:String]? = nil, returnType: T.Type, headers: HTTPHeaders? = nil, params: Alamofire.Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, completionHandler: @escaping (Swift.Result<T?, NetWorkError>) -> Void) {
         
         if isInternetAvailable() {
-            var fullParameters:Dictionary<String,String> = [:]
-            
-//            if url == .generateToken {
-//                fullParameters = ["public_key":"akooon"]
-//            }
-//
-//            if ((url == .login) || ((url == .register) && (method == .post))) {
-//                if let fcm_token = PushNotificationsPresenter().getToken() {
-//                    fullParameters["fcm_token"] = fcm_token
-//                }
-//            }
-            
-//            if let requestParams = bodyParams {
-//                for (key,value) in requestParams {
-//                    fullParameters[key] = value as? String ?? ""
-//                }
-//            }
-//
-            
-            let fullUrl = NetworkManager.shared.getFullUrl(baseUrl: BasUrls.base, endPoint: url, parameters: fullParameters)
-            
-            var request = URLRequest(url: URL(string: fullUrl)!,timeoutInterval: Double.infinity)
-//            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-//            request.addValue("PHPSESSID=d7399284f64f45ab01d9412df45d3d34", forHTTPHeaderField: "Cookie")
-            
+            let params = method == .post ? nil : bodyParams
+            let fullUrl = NetworkManager.shared.getFullUrl(baseUrl: BasUrls.base, endPoint: url, parameters: params)
+
+            var request = URLRequest(url: URL(string: fullUrl)!,timeoutInterval: 60)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            do {
+                if let parameterList = bodyParams, method == .post {
+                    request.httpBody = try JSONSerialization.data(withJSONObject: parameterList)   
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+
             request.httpMethod = method.rawValue
-            
-//            if let deleteParameters = bodyParams {
-//                var parameters:String = ""
-//                for (key, value) in deleteParameters {
-//                    parameters = "\(key)=\(value)"
-//                }
-//                let postData =  parameters.data(using: .utf8)
-//                request.httpBody = postData
-//            }
-            
-            
             URLSession.shared.dataTask(with: request) { data, response, error in
-                
+
                 if self.checkStatusCode400(from: data) {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationCenterKeys.logout.rawValue),
                                                     object: nil,
                                                     userInfo: nil)
                 }
-                
+
                 guard let data = data else {
-                    
+
                     completionHandler(.failure(.init(errorType: .serverError)))
                     print(String(describing: error))
                     return
@@ -95,8 +73,9 @@ extension NetworkManager {
                 }else{
                     completionHandler(.failure(.init(errorType: .couldNotParseJson)))
                 }
-                
+
             }.resume()
+
         } else {
             completionHandler(.failure(.init(errorType: .noInternet)))
         }

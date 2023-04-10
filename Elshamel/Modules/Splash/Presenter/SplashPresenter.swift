@@ -12,6 +12,8 @@ protocol SplashPresenterProtocol {
     func presentLoader()
     func hideLoader()
     func showError(_ error: NetWorkError)
+    func presentHomeScreen()
+    func presentLoginScreen()
 }
 
 class SplashPresenter: SplashPresenterProtocol {
@@ -20,7 +22,7 @@ class SplashPresenter: SplashPresenterProtocol {
     
     func presentLoader() {
         DispatchQueue.main.async { [weak self] in
-            self?.view?.showLoading()
+            self?.view?.startLoading()
             self?.view?.hideErrorView()
         }
         
@@ -28,14 +30,26 @@ class SplashPresenter: SplashPresenterProtocol {
     
     func hideLoader() {
         DispatchQueue.main.async { [weak self] in
-            self?.view?.hideLoading()
+            self?.view?.stopLoading()
         }
     }
     
     func showError(_ error: NetWorkError) {
         let errorMessage = error.errorType?.getMessage() ?? ""
         DispatchQueue.main.async { [weak self] in
-            self?.view?.showErrorView(errorMessage)
+            self?.view?.showError(with: errorMessage)
+        }
+    }
+    
+    func presentHomeScreen() {
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.openHomeScreen()
+        }
+        
+    }
+    func presentLoginScreen() {
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.openLoginScreen()
         }
     }
 }

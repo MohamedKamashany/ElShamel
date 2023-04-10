@@ -7,15 +7,10 @@
 
 import UIKit
 
-protocol LoaderView {
-    func hideLoading()
-    func showLoading()
-}
-
-protocol SplashViewProtocol: AnyObject, LoaderView {
+protocol SplashViewProtocol: AnyObject, LoaderView, ErrorView {
     var interactor: SplashIneractorProtocol? { get set }
-    func showErrorView(_ error:String)
-    func hideErrorView()
+    func openHomeScreen()
+    func openLoginScreen()
 }
 
 // splah screen
@@ -50,24 +45,32 @@ class SplashViewController: UIViewController {
 }
 
 extension SplashViewController: SplashViewProtocol {
-     
-    func hideLoading() {
+    
+    
+    func stopLoading() {
         activityIndicator.stopAnimating()
     }
     
-    func showLoading() {
+    func startLoading() {
         activityIndicator.startAnimating()
     }
     
-    func showErrorView(_ error: String) {
+    func showError(with message: String) {
         errorLabel.isHidden = false
-        errorLabel.text = error
+        errorLabel.text = message
     }
     
     func hideErrorView() {
         errorLabel.isHidden = true
     }
     
+    func openHomeScreen() {
+        
+    }
     
+    func openLoginScreen() {
+        guard let view = LoginConfigurator().createModule() else { return }
+        self.present(view, animated: true)
+    }
 }
 

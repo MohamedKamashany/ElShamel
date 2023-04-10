@@ -23,7 +23,7 @@ enum EndPointUrls: String {
     case getSplashData = "splash/"
     
     case generateToken = "generate_token/"
-    case login = "v1/login/"
+    case login = "auth/login"
     case register = "v1/accounts/"
     case verify = "v1/account/validate_email/"
     case forgetPassword = "v1/account/reset_password/"
