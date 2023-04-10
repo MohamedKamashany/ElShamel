@@ -13,6 +13,7 @@ import SwiftyJSON
 protocol loginDelegat {
     func register()
     func login()
+    func forgetPassword()
 }
 
 class LoginTableViewCell: UITableViewCell {
@@ -63,6 +64,10 @@ class LoginTableViewCell: UITableViewCell {
     }
     
     @IBAction func registerWithFacebockBtn(_ sender: Any) {
+    }
+    
+    @IBAction func forgetPasswordBtn(_ sender: Any) {
+        delegate?.forgetPassword()
     }
     
 }

@@ -57,6 +57,9 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="نسيت كلمة المرور؟"/>
+                        <connections>
+                            <action selector="forgetPasswordBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sEY-Jv-hER"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n75-zT-cDg">
                         <rect key="frame" x="144.5" y="407" width="109.5" height="31"/>

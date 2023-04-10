@@ -93,6 +93,11 @@ extension LoginViewController: loginDelegat {
 //            }
 //        }
     }
+    
+    func forgetPassword() {
+        let forgetPasswordView = UIStoryboard(name: "ForgetPassword", bundle: nil).instantiateViewController(withIdentifier: "ForgetPasswordViewController") as! ForgetPasswordViewController
+        present(forgetPasswordView, animated: true, completion: nil)
+    }
 }
 //----------------------------------------------------------------------------------------------------
 extension LoginViewController: LoginViewProtocol {

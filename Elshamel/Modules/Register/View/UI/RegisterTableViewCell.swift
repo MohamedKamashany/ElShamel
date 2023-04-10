@@ -9,7 +9,7 @@ import UIKit
 
 protocol RegisterTableViewCellDelegate {
     func backToLogin()
-    func register()
+    func register(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String)
 //    func setGener(with gender:String)
 //    func setPosition(with position:String)
 }
@@ -68,7 +68,7 @@ class RegisterTableViewCell: UITableViewCell {
     }
     
     @IBAction func regissterButton(_ sender: Any) {
-        delegate?.register()
+        delegate?.register(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, confirmPass: confirmPasswordTextField.text!, phone: phoneNumberTextField.text!, educationalLevel: educationalLevelTextField.text!)
     }
     
     @IBAction func loginBtn(_ sender: Any) {
@@ -76,7 +76,14 @@ class RegisterTableViewCell: UITableViewCell {
         delegate?.backToLogin()
     }
     
-    
+    func config(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String) {
+        nameTextField.text = name
+        emailTextField.text = email
+        passwordTextField.text = password
+        confirmPasswordTextField.text = confirmPass
+        phoneNumberTextField.text = phone
+        educationalLevelTextField.text = educationalLevel
+    }
     
     @IBAction func teacherBtn(_ sender: Any) {
         teacherButton.setImage(UIImage(named: "mark 1"), for: .normal)
