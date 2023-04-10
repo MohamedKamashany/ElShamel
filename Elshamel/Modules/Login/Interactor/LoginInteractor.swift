@@ -2,42 +2,66 @@
 //  LoginInteractor.swift
 //  Elshamel
 //
-//  Created by mohamed rafik on 19/03/2023.
+//  Created by Mohamed Ibrahim on 04/04/2023.
 //
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
-protocol LoginIneractorProtocol {
+protocol LoginInteractorProtocol {
     var presenter: LoginPresenterProtocol? { get set }
-    func getLoginData()
+    func getUserWith(email: String?, password: String?)
 }
 
-
-
-class LoginInteractor: LoginIneractorProtocol {
+class LoginInteractor: LoginInteractorProtocol {
     
     var presenter: LoginPresenterProtocol?
-
-    func getLoginData() {
+    
+    func getUserWith(email: String?, password: String?) {
+        //TODO: validation before the integration
+        guard let userMail = email, !userMail.isEmpty else {
+            //self?.presenter?.showError(error)
+            return
+        }
+        
+        guard let userPassword = password, !userPassword.isEmpty else {
+            //self?.presenter?.showError(error)
+            return
+        }
+        
+        guard userPassword.count >= 6 else {
+            //self?.presenter?.showError(error)
+            return
+        }
+        
         let headers: [String: String] = ["Accept": "application/json"]
-        let parameters: [String: Any] = ["email": "prince4moha5@gmail.com",
-                                         "device_id": "device token",
-                                         "login_method": "facebook"]
-        AF.request("https://elshamel.site/api/auth/login", method: .post, parameters: parameters,headers: HTTPHeaders(headers)).response { [weak self] response in
-            switch response.result {
-            case.success(let data):
-                if let data = data,
-                   let loginTask = try? JSONDecoder().decode(LoginAcount.self, from: data) {
-                    print(loginTask.data?.account?.name ?? "can't login")
-                } else {
-                    print("Error can't login")
+        let parameters: [String: String] = ["email": userMail,
+                                         "password": userPassword,
+                                         "device_id": "device token"
+                                         ]
+        if NetworkManager.shared.isInternetAvailable() {
+            presenter?.view?.startLoading()
+            NetworkManager.shared.processReq(url: .login,
+                                             method: .post,
+                                             bodyParams: parameters,
+                                             returnType: LoginResponse.self,
+                                             headers: HTTPHeaders(headers), completionHandler: { [weak self] result in
+                self?.presenter?.view?.stopLoading()
+                switch result {
+                case .success(let response):
+                    if let data = response?.data {
+                        self?.presenter?.presentHomeScreen()
+                    }else{
+                        let error = NetWorkError(errorType: ElShamelErrorType.serverError)
+                        self?.presenter?.showError(error)
+                    }
+                case .failure(let error):
+                    self?.presenter?.showError(error)
                 }
-            case.failure(let error):
-                print(error)
-            }
+            })
+        }else{
+            let error = NetWorkError(errorType: .noInternet)
+            presenter?.showError(error)
         }
     }
-    
 }

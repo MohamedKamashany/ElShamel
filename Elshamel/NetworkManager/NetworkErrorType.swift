@@ -18,6 +18,7 @@ enum ElShamelErrorType: Error {
     case validationError
     case unauthenticated
     case couldNotEncodeBodyToJSON
+    case badURL
     
     func getMessage() -> String {
         switch self {

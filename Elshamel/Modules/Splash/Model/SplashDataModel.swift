@@ -10,15 +10,15 @@ import Foundation
 class SplashModel: Codable {
     var data: SplashData?
     var message: String?
-//    var errors: AnyObject?
+    //var errors: AnyObject?
 }
 
 class SplashData: Codable {
     
     var settings: Settings?
-    var grades:  Grades?
-    var materials:  Materials?
-    var latest_videos: LatestVideos?
+    var grades:  [Grade]?
+    var materials:  [Material]?
+    var latest_videos: [Video]?
     var semesters: Semesters?
 }
 
@@ -29,27 +29,15 @@ class Settings: Codable {
     var email: String?
 }
 
-class Grades: Codable {
-    var gradesList: [Grade]?
-}
-
 class Grade: Codable {
     var id: Int?
     var name: String?
-}
-
-class Materials: Codable {
-    var materialsList: [Material]?
 }
 
 class Material: Codable {
     var id: Int?
     var name: String?
     var image: String?
-}
-
-class LatestVideos: Codable {
-    var videoList: [Video]?
 }
 
 class Video: Codable {

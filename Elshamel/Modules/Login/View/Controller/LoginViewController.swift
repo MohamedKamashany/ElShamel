@@ -7,30 +7,30 @@
 
 import UIKit
 import Alamofire
+import MBProgressHUD
 
-protocol LoginViewProtocol: AnyObject, LoaderView {
-    var interactor: LoginIneractorProtocol? { get set }
-    func showErrorView(_ error:String)
+protocol ErrorView {
+    func showError(with message: String)
     func hideErrorView()
 }
 
 
+protocol LoginViewProtocol: ErrorView, LoaderView {
+    var interactor: LoginInteractorProtocol? { get set }
+    func openHomeScreen()
+}
+
 class LoginViewController: UIViewController {
-    
-    var interactor: LoginIneractorProtocol?
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var loginTableView: UITableView!
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
-//    let network = NetworkManager<Login>()
+    var interactor: LoginInteractorProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
         self.navigationController?.navigationBar.backgroundColor = AppColors.navigationBarPrimaryColor
-        activityIndicator.isHidden = true
-        config()
     }
 
     func setUpTableView() {
@@ -39,19 +39,9 @@ class LoginViewController: UIViewController {
         loginTableView.register(UINib(nibName: "LoginTableViewCell", bundle: nil), forCellReuseIdentifier: "LoginTableViewCell")
         loginTableView.rowHeight = UITableView.automaticDimension
     }
-    
-    private func config() {
-        let presenter = LoginPresenter()
-        presenter.view = self
-        
-        let interactor = LoginInteractor()
-        interactor.presenter = presenter
-        
-        self.interactor = interactor
-    }
 
 }
-//----------------------------------------------------------------------------------------------------
+
     
 extension LoginViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -66,9 +56,9 @@ extension LoginViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-//----------------------------------------------------------------------------------------------------
 
-extension LoginViewController: loginDelegat {
+
+extension LoginViewController: loginDelegate {
 
     func register() {
         let storybord = UIStoryboard(name: "Main", bundle: nil)
@@ -76,22 +66,8 @@ extension LoginViewController: loginDelegat {
             present(vc, animated: false, completion: nil)
     }
     
-    func login() {
-        interactor?.getLoginData()
-//        network.getServices(serviceName: NetworkUtilities.loginService,
-//                            method: HTTPMethod.post,
-//                            parameters: ["email": "taha@gmail.com", "password": "12345678"],
-//                            headers: ["Accept" : "application/json"]) { result in
-//            switch result {
-//            case .success(let data):
-//                
-//                break
-//                
-//            case .failure(let error):
-//                
-//                break
-//            }
-//        }
+    func login(email: String?, password: String?) {
+        interactor?.getUserWith(email: email, password: password)
     }
     
     func forgetPassword() {
@@ -99,26 +75,17 @@ extension LoginViewController: loginDelegat {
         present(forgetPasswordView, animated: true, completion: nil)
     }
 }
-//----------------------------------------------------------------------------------------------------
+
 extension LoginViewController: LoginViewProtocol {
-     
-    func hideLoading() {
-//        activityIndicator.stopAnimating()
+    
+    func openHomeScreen() {
     }
     
-    func showLoading() {
-//        activityIndicator.startAnimating()
-    }
-    
-    func showErrorView(_ error: String) {
-//        errorLabel.isHidden = false
-//        errorLabel.text = error
+    func showError(with message: String) {
+        //TODO: show alert with the message
     }
     
     func hideErrorView() {
-//        errorLabel.isHidden = true
+        
     }
-    
-    
 }
-
