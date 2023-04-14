@@ -36,8 +36,8 @@ class LoginInteractor: LoginInteractorProtocol {
         
         let headers: [String: String] = ["Accept": "application/json"]
         let parameters: [String: String] = ["email": userMail,
-                                         "password": userPassword,
-                                         "device_id": "device token"
+                                            "password": userPassword,
+                                            "device_id": "device token"
                                          ]
         if NetworkManager.shared.isInternetAvailable() {
             presenter?.view?.startLoading()
@@ -51,6 +51,8 @@ class LoginInteractor: LoginInteractorProtocol {
                 switch result {
                 case .success(let response):
                     if let data = response?.data {
+                        LogedInUser.shared.token = data.token
+                        LogedInUser.shared.userData  = data.account
                         self?.presenter?.presentHomeScreen()
                     }else{
                         let error = NetWorkError(errorType: ElShamelErrorType.serverError)

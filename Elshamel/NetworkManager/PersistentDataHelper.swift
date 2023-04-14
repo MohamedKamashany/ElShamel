@@ -38,12 +38,12 @@ class PersistentDataHelper {
 
     // MARK: - userInfo
 
-    var userInfo: UserData? {
+    var userInfo: Account? {
         get {
             if let savedPerson = UserDefaults.standard.value(forKey: keychainWrapperKeys.user.rawValue) as? Data {
                 let decoder = JSONDecoder()
                 do {
-                    return try decoder.decode(UserData.self, from: savedPerson)
+                    return try decoder.decode(Account.self, from: savedPerson)
                 } catch  {
                     return nil
                 }

@@ -11,6 +11,7 @@ import Reachability
 protocol SplashIneractorProtocol {
     var presenter: SplashPresenterProtocol? { get set }
     func getSplashData()
+    func checkLogedInUser()
 }
 
 class SplashIneractor: SplashIneractorProtocol {
@@ -26,8 +27,7 @@ class SplashIneractor: SplashIneractorProtocol {
                 switch result {
                 case .success(let response):
                     if let data = response?.data {
-                        //TODO: check about cached user. If there is cached user then will redirect to the home else will redirect to login
-                        self?.presenter?.presentLoginScreen()
+                        self?.checkLogedInUser()
                     }else{
                         let error = NetWorkError(errorType: ElShamelErrorType.serverError)
                         self?.presenter?.showError(error)
@@ -42,5 +42,11 @@ class SplashIneractor: SplashIneractorProtocol {
         }
     }
     
-    
+    func checkLogedInUser() {
+        if let _ = LogedInUser.shared.userData {
+            presenter?.presentHomeScreen()
+        }else{
+            presenter?.presentLoginScreen()
+        }
+    }
 }

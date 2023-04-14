@@ -30,6 +30,8 @@
 		2721EDAE29E45B1C004F068E /* RegisterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721EDA529E45B1C004F068E /* RegisterTableViewCell.swift */; };
 		2721EDAF29E45B1C004F068E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721EDA729E45B1C004F068E /* RegisterViewController.swift */; };
 		2721EDB029E45B1C004F068E /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721EDA929E45B1C004F068E /* RegisterInteractor.swift */; };
+		2721EDCA29E9A92B004F068E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2721EDC929E9A92B004F068E /* Home.storyboard */; };
+		2721EDCC29E9A9A0004F068E /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721EDCB29E9A9A0004F068E /* HomeConfigurator.swift */; };
 		27DB3B3C29B4E9A200F54F52 /* NetworkErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB3B3829B4E9A200F54F52 /* NetworkErrorType.swift */; };
 		27DB3B3D29B4E9A200F54F52 /* PersistentDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB3B3929B4E9A200F54F52 /* PersistentDataHelper.swift */; };
 		27DB3B3E29B4E9A200F54F52 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB3B3A29B4E9A200F54F52 /* NetworkManager.swift */; };
@@ -150,6 +152,8 @@
 		2721EDA529E45B1C004F068E /* RegisterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTableViewCell.swift; sourceTree = "<group>"; };
 		2721EDA729E45B1C004F068E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2721EDA929E45B1C004F068E /* RegisterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
+		2721EDC929E9A92B004F068E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		2721EDCB29E9A9A0004F068E /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
 		27DB3B3829B4E9A200F54F52 /* NetworkErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorType.swift; sourceTree = "<group>"; };
 		27DB3B3929B4E9A200F54F52 /* PersistentDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentDataHelper.swift; sourceTree = "<group>"; };
 		27DB3B3A29B4E9A200F54F52 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -281,6 +285,7 @@
 		271D020A29C67F83004A7D5E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2721EDC129E9A8F5004F068E /* Home */,
 				2721ED9C29E45B1C004F068E /* Register */,
 				D476951029E349A90052C3C8 /* Subscription */,
 				D475E1D1296EFE220096A08A /* Onbording */,
@@ -452,6 +457,72 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		2721EDC129E9A8F5004F068E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2721EDC629E9A918004F068E /* Configurator */,
+				2721EDC529E9A90F004F068E /* Model */,
+				2721EDC429E9A90B004F068E /* Presenter */,
+				2721EDC329E9A905004F068E /* Interactor */,
+				2721EDC229E9A902004F068E /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2721EDC229E9A902004F068E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2721EDC829E9A920004F068E /* Res */,
+				2721EDC729E9A91C004F068E /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2721EDC329E9A905004F068E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2721EDC429E9A90B004F068E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2721EDC529E9A90F004F068E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2721EDC629E9A918004F068E /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				2721EDCB29E9A9A0004F068E /* HomeConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		2721EDC729E9A91C004F068E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D48AF30F2979BC2F00D7EC2F /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2721EDC829E9A920004F068E /* Res */ = {
+			isa = PBXGroup;
+			children = (
+				2721EDC929E9A92B004F068E /* Home.storyboard */,
+			);
+			path = Res;
+			sourceTree = "<group>";
+		};
 		27DB3B3729B4E9A200F54F52 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,7 +608,6 @@
 				D471EA26295C615700D4C1EB /* Main.storyboard */,
 				D48B04B029801844000C9996 /* StudentView */,
 				D48B04B5298019B9000C9996 /* TeacherView */,
-				D48D78B5299E6476009F099B /* Home */,
 				D48D78B6299E6489009F099B /* Verification */,
 				D476951429E34A960052C3C8 /* Students */,
 				D481B01E2966FF7000DA60F0 /* ExamResultViewController.swift */,
@@ -763,14 +833,6 @@
 			path = TeacherView;
 			sourceTree = "<group>";
 		};
-		D48D78B5299E6476009F099B /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				D48AF30F2979BC2F00D7EC2F /* HomeViewController.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		D48D78B6299E6489009F099B /* Verification */ = {
 			isa = PBXGroup;
 			children = (
@@ -917,6 +979,7 @@
 				D48B04B929801DDD000C9996 /* SubjectsCollectionViewCell.xib in Resources */,
 				D47BC88C297ED504005E3631 /* MyStudentsCollectionViewCell.xib in Resources */,
 				2721ED8E29E3960D004F068E /* OnboardingCollectionViewCell.xib in Resources */,
+				2721EDCA29E9A92B004F068E /* Home.storyboard in Resources */,
 				D48AA1CE29782A3A000EC87A /* AnswersTableViewCell.xib in Resources */,
 				D48B04BD29801F95000C9996 /* NewTableViewCell.xib in Resources */,
 				D476951629E34C510052C3C8 /* Subscription.storyboard in Resources */,
@@ -1031,6 +1094,7 @@
 				D48B04C9298031DA000C9996 /* FollowCollectionViewCell.swift in Sources */,
 				D49EC02229C4C157009ADAA3 /* SplashPresenter.swift in Sources */,
 				D483B74D29E2F7B5005BE44B /* ForgetPasswordViewController.swift in Sources */,
+				2721EDCC29E9A9A0004F068E /* HomeConfigurator.swift in Sources */,
 				2721ED8C29E3960D004F068E /* OnboardingCollectionViewCell.swift in Sources */,
 				2721ED9329E3960D004F068E /* LoginTableViewCell.swift in Sources */,
 				2721ED8D29E3960D004F068E /* PaginationViewController.swift in Sources */,

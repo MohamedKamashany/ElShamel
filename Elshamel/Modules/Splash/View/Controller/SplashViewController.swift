@@ -65,13 +65,20 @@ extension SplashViewController: SplashViewProtocol {
     }
     
     func openHomeScreen() {
-        
+        DispatchQueue.main.async { [weak self] in
+            let storybord = UIStoryboard(name: "Main", bundle: nil)
+            let destnation = storybord.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            self?.present(destnation, animated: true, completion: nil)
+        }
     }
     
     func openLoginScreen() {
-//        guard let view = LoginConfigurator().createModule() else { return }
-        let view = UIStoryboard(name: "Subscription", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionViewController") as! SubscriptionViewController
-        self.present(view, animated: true)
+        DispatchQueue.main.async {
+            guard let view = LoginConfigurator().createModule() else { return }
+            self.present(view, animated: true)
+        }
+        
+//        let view = UIStoryboard(name: "Subscription", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionViewController") as! SubscriptionViewController
     }
 }
 

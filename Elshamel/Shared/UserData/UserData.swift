@@ -43,7 +43,7 @@ class UserData: Codable {
 class LogedInUser {
     
     static let shared = LogedInUser()
-    var userData:UserData? {
+    var userData:Account? {
         get {
             return PersistentDataHelper.shared.userInfo
         }

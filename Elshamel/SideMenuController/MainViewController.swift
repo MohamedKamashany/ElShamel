@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(panGestureRecognizer)
         // ...
         // Default Main View Controller
-        showViewController(viewController: StudentViewController.self, storyboardId: "StudentViewController")
+        showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
     }
     
     // Call this Button Action from the View Controller you want to Expand/Collapse when you tap a button
