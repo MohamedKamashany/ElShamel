@@ -41,6 +41,7 @@ class SubscriptionViewController: UIViewController {
         subscriptionTableView.delegate = self
         subscriptionTableView.dataSource = self
         subscriptionTableView.register(UINib(nibName: "SubscriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "SubscriptionTableViewCell")
+        subscriptionTableView.rowHeight = UITableView.automaticDimension
     }
 
     @IBAction func backBtn(_ sender: Any) {
@@ -88,7 +89,7 @@ extension SubscriptionViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 230
+        return UITableView.automaticDimension
     }
 }
 
