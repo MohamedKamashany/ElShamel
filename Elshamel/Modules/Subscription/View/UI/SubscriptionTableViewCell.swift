@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol SubscriptionTableViewCellDelegate {
+    func subscrip()
+}
+
+
 class SubscriptionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var subscripLbl: UILabel!
@@ -16,6 +21,8 @@ class SubscriptionTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var LELbl: UILabel!
     @IBOutlet weak var subscripButton: UIButton!
+    
+    var delegate: SubscriptionTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +42,7 @@ class SubscriptionTableViewCell: UITableViewCell {
     }
     
     @IBAction func subscripBtn(_ sender: Any) {
+        delegate?.subscrip()
     }
     
 }

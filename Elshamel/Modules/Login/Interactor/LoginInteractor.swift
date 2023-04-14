@@ -45,7 +45,8 @@ class LoginInteractor: LoginInteractorProtocol {
                                              method: .post,
                                              bodyParams: parameters,
                                              returnType: LoginResponse.self,
-                                             headers: HTTPHeaders(headers), completionHandler: { [weak self] result in
+                                             headers: headers,
+                                             completionHandler: { [weak self] result in
                 self?.presenter?.view?.stopLoading()
                 switch result {
                 case .success(let response):

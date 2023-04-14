@@ -106,6 +106,7 @@
 		D48B04C629802DA2000C9996 /* FollowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48B04C429802DA2000C9996 /* FollowTableViewCell.xib */; };
 		D48B04C9298031DA000C9996 /* FollowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B04C7298031DA000C9996 /* FollowCollectionViewCell.swift */; };
 		D48B04CA298031DA000C9996 /* FollowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48B04C8298031DA000C9996 /* FollowCollectionViewCell.xib */; };
+		D48DD19929E46A29001144CF /* SubscriptionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48DD19829E46A29001144CF /* SubscriptionResponse.swift */; };
 		D4935AC6297D5A980028AF2B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4935AC5297D5A980028AF2B /* SideMenuViewController.swift */; };
 		D4935AC8297D5AAD0028AF2B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4935AC7297D5AAD0028AF2B /* MainViewController.swift */; };
 		D49EC02029C4C075009ADAA3 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EC01F29C4C075009ADAA3 /* SplashInteractor.swift */; };
@@ -230,6 +231,7 @@
 		D48B04C429802DA2000C9996 /* FollowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowTableViewCell.xib; sourceTree = "<group>"; };
 		D48B04C7298031DA000C9996 /* FollowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCollectionViewCell.swift; sourceTree = "<group>"; };
 		D48B04C8298031DA000C9996 /* FollowCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowCollectionViewCell.xib; sourceTree = "<group>"; };
+		D48DD19829E46A29001144CF /* SubscriptionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionResponse.swift; sourceTree = "<group>"; };
 		D4935AC5297D5A980028AF2B /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		D4935AC7297D5AAD0028AF2B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D49EC01F29C4C075009ADAA3 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
@@ -418,8 +420,8 @@
 		2721EDA129E45B1C004F068E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2721EDA229E45B1C004F068E /* UI */,
 				2721EDA629E45B1C004F068E /* Controller */,
+				2721EDA229E45B1C004F068E /* UI */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -427,9 +429,9 @@
 		2721EDA229E45B1C004F068E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				2721EDA329E45B1C004F068E /* RegisterTableViewCell.xib */,
 				2721EDA429E45B1C004F068E /* Register.storyboard */,
 				2721EDA529E45B1C004F068E /* RegisterTableViewCell.swift */,
+				2721EDA329E45B1C004F068E /* RegisterTableViewCell.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -581,7 +583,7 @@
 		D476951029E349A90052C3C8 /* Subscription */ = {
 			isa = PBXGroup;
 			children = (
-				D478D08129E405A40082D7D8 /* Model */,
+				D48DD19729E46582001144CF /* Model */,
 				D478D08329E405B90082D7D8 /* Presenter */,
 				D478D08229E405AB0082D7D8 /* Interactor */,
 				D476951129E349D00052C3C8 /* View */,
@@ -624,13 +626,6 @@
 				D486DA372965C36B0088ECE9 /* StudentTableViewCell.xib */,
 			);
 			path = Students;
-			sourceTree = "<group>";
-		};
-		D478D08129E405A40082D7D8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D478D08229E405AB0082D7D8 /* Interactor */ = {
@@ -804,6 +799,14 @@
 				D47538DC296B0C7B002DBECB /* VideoTableViewCell.xib */,
 			);
 			path = Video;
+			sourceTree = "<group>";
+		};
+		D48DD19729E46582001144CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D48DD19829E46A29001144CF /* SubscriptionResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D4935ACB297D61780028AF2B /* SideMenuController */ = {
@@ -1038,6 +1041,7 @@
 				D483B75329E30898005BE44B /* ForgetPasswordPresenter.swift in Sources */,
 				D481B02829674D3100DA60F0 /* NotificationTableViewCell.swift in Sources */,
 				D49EC02529C4C726009ADAA3 /* SplashDataModel.swift in Sources */,
+				D48DD19929E46A29001144CF /* SubscriptionResponse.swift in Sources */,
 				D477C8442977DF3F008340D9 /* AnswerImageView.swift in Sources */,
 				2721ED9029E3960D004F068E /* LoginResponse.swift in Sources */,
 				D48707B429703AEC0006299B /* SubjectViewController.swift in Sources */,

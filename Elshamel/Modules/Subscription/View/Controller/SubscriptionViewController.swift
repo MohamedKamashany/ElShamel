@@ -9,6 +9,7 @@ import UIKit
 
 protocol SubscriptionViewProtocol {
     var interactor: SubscriptionInteractorProtocol? { get set }
+    func showSuccessMsg(msg: String)
 }
 
 
@@ -43,6 +44,7 @@ class SubscriptionViewController: UIViewController {
     }
 
     @IBAction func backBtn(_ sender: Any) {
+        dismiss(animated: true)
     }
     
 }
@@ -81,6 +83,7 @@ extension SubscriptionViewController: UITableViewDelegate, UITableViewDataSource
             cell.LELbl.text = ""
             cell.descriptionLbl.text = "مشاهدة جميع المحتويات التعليميه لكل المواد بما فيها الامتحانات لمدة شهر من تاريخ الاشتراك"
         }
+        cell.delegate = self
         return cell
     }
     
@@ -92,4 +95,17 @@ extension SubscriptionViewController: UITableViewDelegate, UITableViewDataSource
 
 extension SubscriptionViewController: SubscriptionViewProtocol {
     
+    func showSuccessMsg(msg: String) {
+        let successMsg = UIAlertController(title: "Success", message: msg , preferredStyle: .alert)
+        successMsg.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+        present(successMsg, animated: true)
+    }
+}
+
+
+extension SubscriptionViewController: SubscriptionTableViewCellDelegate {
+    
+    func subscrip() {
+        interactor?.getSubscriptionData()
+    }
 }

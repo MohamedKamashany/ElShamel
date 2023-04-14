@@ -69,7 +69,8 @@ extension SplashViewController: SplashViewProtocol {
     }
     
     func openLoginScreen() {
-        guard let view = LoginConfigurator().createModule() else { return }
+//        guard let view = LoginConfigurator().createModule() else { return }
+        let view = UIStoryboard(name: "Subscription", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionViewController") as! SubscriptionViewController
         self.present(view, animated: true)
     }
 }

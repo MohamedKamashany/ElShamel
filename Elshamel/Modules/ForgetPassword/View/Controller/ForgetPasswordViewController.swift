@@ -28,7 +28,7 @@ class ForgetPasswordViewController: UIViewController {
         super.viewDidLoad()
         config()
         setTxtAndBtn()
-        interactor?.getCode()
+//        interactor?.getCode()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -59,6 +59,19 @@ class ForgetPasswordViewController: UIViewController {
     }
     
     @IBAction func sendCodeBtn(_ sender: Any) {
+        if let email = emailTxt.text, !email.isEmpty{
+            interactor?.getCode(email: email)
+        } else {
+            let placeholderText = "برجاء ادخال البريد الالكتروني"
+            let placeholderColor = #colorLiteral(red: 1, green: 0.06169341338, blue: 0.2629264818, alpha: 0.5252645126)
+
+            let attributes = [NSAttributedString.Key.foregroundColor: placeholderColor]
+            let attributedPlaceholderText = NSAttributedString(string: placeholderText, attributes: attributes)
+            emailTxt.attributedPlaceholder = attributedPlaceholderText
+//            let error = UIAlertController(title: "Error", message: "ادخل بريدك الالكتروني", preferredStyle: .alert)
+//            error.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//            present(error, animated: true, completion: nil)
+        }
     }
     
 }

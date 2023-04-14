@@ -11,22 +11,27 @@ import Alamofire
 
 protocol ForgetPasswordInteractorProtocol {
     var presenter: ForgetPasswordPresenterProtocol? { get set }
-    func getCode()
+    func getCode(email: String)
 }
 
 class ForgetPasswordInteractor: ForgetPasswordInteractorProtocol {
     
     var presenter: ForgetPasswordPresenterProtocol?
     
-    func getCode() {
+    func getCode(email: String) {
         let headers: [String: String] = ["Accept": "application/json"]
-        let parameters: [String: Any] = ["email": "teacher10@gmail.com"]
-        AF.request("https://elshamel.site/api/auth/reset-password-code", method: .post, parameters: parameters, headers: HTTPHeaders(headers)).response { [weak self] result in
-            switch result.result {
-            case .success(let data):
-                if let data = data,
-                    let code = try? JSONDecoder().decode(ForgetPasswordResponse.self, from: data) {
-                    self?.presenter?.presentSuccessMessage(successMsg: code.message ?? "")
+        let parameters = ["email": email]
+        NetworkManager.shared.processReq(url: .forgetPassword,
+                                         method: .post,
+                                         bodyParams: parameters,
+                                         returnType: ForgetPasswordResponse.self,
+                                         headers: headers) { [weak self] result in
+            switch result {
+            case .success(let response):
+                if let data = response {
+                    DispatchQueue.main.async {
+                        self?.presenter?.presentSuccessMessage(successMsg: data.message ?? "")
+                    }
                 }
             case .failure(let error):
                 print(error)

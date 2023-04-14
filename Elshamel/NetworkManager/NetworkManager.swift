@@ -35,8 +35,8 @@ class NetworkManager {
 // MARK: - process api reqest
 
 extension NetworkManager {
-    func processReq<T: Codable>(url: EndPointUrls, method: HTTPMethod, bodyParams:[String:String]? = nil, returnType: T.Type, headers: HTTPHeaders? = nil, params: Alamofire.Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, completionHandler: @escaping (Swift.Result<T?, NetWorkError>) -> Void) {
-        
+    func processReq<T: Codable>(url: EndPointUrls, method: HTTPMethod, bodyParams:[String:String]? = nil, returnType: T.Type, headers: [String: String]? = nil, params: Alamofire.Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, completionHandler: @escaping (Swift.Result<T?, NetWorkError>) -> Void) {
+
         if isInternetAvailable() {
             let params = method == .post ? nil : bodyParams
             let fullUrl = NetworkManager.shared.getFullUrl(baseUrl: BasUrls.base, endPoint: url, parameters: params)
@@ -44,10 +44,17 @@ extension NetworkManager {
             var request = URLRequest(url: URL(string: fullUrl)!,timeoutInterval: 60)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
+//            if let headers = headers {
+//                let headerDictionary = Dictionary(uniqueKeysWithValues: headers.map { ($0.0, $0.1) })
+//                for (key, value) in headerDictionary {
+//                    request.addValue(value, forHTTPHeaderField: key)
+//                }
+//            }
+            let v4apiKey = "222|WZKs8BeubiG0McFonUtMhSfduEU3ueps5wcLMEJR"
             request.setValue("Bearer \(v4apiKey)", forHTTPHeaderField: "Authentication")
             do {
                 if let parameterList = bodyParams, method == .post {
-                    request.httpBody = try JSONSerialization.data(withJSONObject: parameterList)   
+                    request.httpBody = try JSONSerialization.data(withJSONObject: parameterList)
                 }
             } catch let error {
                 print(error.localizedDescription)
