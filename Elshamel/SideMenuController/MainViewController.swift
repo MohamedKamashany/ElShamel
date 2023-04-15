@@ -98,13 +98,15 @@ class MainViewController: UIViewController {
 
 extension MainViewController: SideMenuViewControllerDelegate {
     func selectedCell(_ row: Int) {
-//        switch row {
+        switch row {
 //        case 0:
 //            // pyament
 //            self.showViewController(viewController: TeacherViewController.self, storyboardId: "TeacherViewController")
-//        case 1:
+        case 1:
 //            // Music
-//            self.showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
+// self.showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
+            let view = UIStoryboard(name: "Subscription", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionViewController") as! SubscriptionViewController
+            self.present(view, animated: true, completion: nil)
 //        case 2:
 //            // Movies
 //            self.showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
@@ -120,16 +122,24 @@ extension MainViewController: SideMenuViewControllerDelegate {
 //        case 5:
 //            // Settings
 //            self.showViewController(viewController: StudentViewController.self, storyboardId: "StudentViewController")
-////        case 6:
+        case 6:
 ////            // Like us on facebook
 ////            let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/johncodeos")!)
 ////            present(safariVC, animated: true)
-//        default:
-//            break
-//        }
+            LogedInUser.shared.userData = nil
+            let exitMes = UIAlertController(title: "تسجيل الخروج", message: "" , preferredStyle: .alert)
+            exitMes.addAction(UIAlertAction(title: "الغاء", style: .cancel, handler: nil))
+            exitMes.addAction(UIAlertAction(title: "خروج", style: .destructive, handler: { _ in
+                let view = UIStoryboard(name: "Splash", bundle: nil).instantiateViewController(withIdentifier: "SplashViewController") as! SplashViewController
+                self.present(view, animated: true, completion: nil)
+            }))
+            present(exitMes, animated: true)
+        default:
+            break
+        }
         
         // Collapse side menu with animation
-//        DispatchQueue.main.async { self.sideMenuState(expanded: false) }
+        DispatchQueue.main.async { self.sideMenuState(expanded: false) }
     }
     
     func showViewController<T: UIViewController>(viewController: T.Type, storyboardId: String) -> () {

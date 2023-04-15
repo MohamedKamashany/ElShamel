@@ -10,6 +10,7 @@ import Foundation
 protocol SubscriptionPresenterProtocol {
     var view: SubscriptionViewProtocol? { get set }
     func presentSuccessMsg(msg: String)
+    func presentPlans(plans: [PlansData])
 }
 
 class SubscriptionPresenter: SubscriptionPresenterProtocol {
@@ -18,5 +19,10 @@ class SubscriptionPresenter: SubscriptionPresenterProtocol {
     
     func presentSuccessMsg(msg: String) {
         view?.showSuccessMsg(msg: msg)
+    }
+    
+    func presentPlans(plans: [PlansData]) {
+        view?.plansView(palns: plans)
+        print(plans)
     }
 }

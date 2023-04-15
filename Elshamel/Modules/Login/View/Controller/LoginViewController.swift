@@ -79,10 +79,16 @@ extension LoginViewController: loginDelegate {
 extension LoginViewController: LoginViewProtocol {
     
     func openHomeScreen() {
-        DispatchQueue.main.async {
-            guard let view = HomeConfigurator().createModule() else { return }
-            self.present(view, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            let storybord = UIStoryboard(name: "Main", bundle: nil)
+            let destnation = storybord.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            self?.present(destnation, animated: true, completion: nil)
         }
+        
+//        DispatchQueue.main.async {
+//            guard let view = HomeConfigurator().createModule() else { return }
+//            self.present(view, animated: true)
+//        }
     }
     
     func showError(with message: String) {

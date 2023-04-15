@@ -355,8 +355,8 @@
 		2721ED8129E3960D004F068E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2721ED8229E3960D004F068E /* UI */,
 				2721ED8629E3960D004F068E /* Controller */,
+				2721ED8229E3960D004F068E /* UI */,
 			);
 			path = View;
 			sourceTree = "<group>";

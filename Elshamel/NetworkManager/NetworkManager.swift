@@ -44,14 +44,14 @@ extension NetworkManager {
             var request = URLRequest(url: URL(string: fullUrl)!,timeoutInterval: 60)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
-//            if let headers = headers {
-//                let headerDictionary = Dictionary(uniqueKeysWithValues: headers.map { ($0.0, $0.1) })
-//                for (key, value) in headerDictionary {
-//                    request.addValue(value, forHTTPHeaderField: key)
-//                }
-//            }
-            let v4apiKey = "222|WZKs8BeubiG0McFonUtMhSfduEU3ueps5wcLMEJR"
-            request.setValue("Bearer \(v4apiKey)", forHTTPHeaderField: "Authentication")
+            if let headers = headers {
+                let headerDictionary = Dictionary(uniqueKeysWithValues: headers.map { ($0.0, $0.1) })
+                for (key, value) in headerDictionary {
+                    request.addValue(value, forHTTPHeaderField: key)
+                }
+            }
+//            let v4apiKey = "222|WZKs8BeubiG0McFonUtMhSfduEU3ueps5wcLMEJR"
+//            request.setValue("Bearer \(v4apiKey)", forHTTPHeaderField: "Authentication")
             do {
                 if let parameterList = bodyParams, method == .post {
                     request.httpBody = try JSONSerialization.data(withJSONObject: parameterList)

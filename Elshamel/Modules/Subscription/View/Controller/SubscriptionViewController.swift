@@ -10,6 +10,7 @@ import UIKit
 protocol SubscriptionViewProtocol {
     var interactor: SubscriptionInteractorProtocol? { get set }
     func showSuccessMsg(msg: String)
+    func plansView(palns: [PlansData])
 }
 
 
@@ -20,11 +21,17 @@ class SubscriptionViewController: UIViewController {
     @IBOutlet weak var subscriptionTableView: UITableView!
     
     var interactor: SubscriptionInteractorProtocol?
+    var plans = [PlansData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         config()
         setUpTableView()
+        self.interactor?.getSubscriptionData()
+        DispatchQueue.main.async {
+            self.subscriptionTableView.reloadData()
+        }
+        print(plans)
     }
     
     private func config() {
@@ -54,7 +61,7 @@ class SubscriptionViewController: UIViewController {
 extension SubscriptionViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return plans.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,12 +108,17 @@ extension SubscriptionViewController: SubscriptionViewProtocol {
         successMsg.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
         present(successMsg, animated: true)
     }
+    
+    func plansView(palns: [PlansData]) {
+        self.plans = palns
+        print(palns)
+    }
 }
 
 
 extension SubscriptionViewController: SubscriptionTableViewCellDelegate {
     
     func subscrip() {
-        interactor?.getSubscriptionData()
+//        interactor?.getSubscriptionData()
     }
 }
