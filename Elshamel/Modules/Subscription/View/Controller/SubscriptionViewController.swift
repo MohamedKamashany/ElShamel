@@ -110,8 +110,10 @@ extension SubscriptionViewController: SubscriptionViewProtocol {
     }
     
     func plansView(palns: [PlansData]) {
-        self.plans = palns
-        print(palns)
+        DispatchQueue.main.async {
+            self.plans = palns
+            subscriptionTableView.reloadData()
+        }
     }
 }
 
