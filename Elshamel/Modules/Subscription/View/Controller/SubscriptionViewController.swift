@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SubscriptionViewProtocol {
+protocol SubscriptionViewProtocol: LoaderView {
     var interactor: SubscriptionInteractorProtocol? { get set }
     func showSuccessMsg(msg: String)
     func plansView(palns: [PlansData])

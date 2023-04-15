@@ -43,16 +43,18 @@ class SubscriptionInteractor: SubscriptionInteractorProtocol {
 //    }
     
     func getSubscriptionData() {
+        presenter?.view?.startLoading()
         let v4apiKey = "258|4HTnAgBreqBYumlfplJOxWqLzCtfAqwaralquOr4"
         let headers = ["Authorization": "Bearer \(v4apiKey)"]
         NetworkManager.shared.processReq(url: .plans,
                                          method: .get,
                                          returnType: SubscriptionResponse.self, headers: headers) { [weak self] result in
+            self?.presenter?.view?.stopLoading()
             switch result {
             case .success(let response):
                 if let data = response {
                     DispatchQueue.main.async {
-                        self?.presenter?.presentSuccessMsg(msg: data.message  ?? "")
+                        //self?.presenter?.presentSuccessMsg(msg: data.message  ?? "")
                         self?.presenter?.presentPlans(plans: data.data?.plans ?? [])
                     }
                 }
