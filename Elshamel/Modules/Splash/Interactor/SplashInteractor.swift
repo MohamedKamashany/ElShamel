@@ -27,6 +27,7 @@ class SplashIneractor: SplashIneractorProtocol {
                 switch result {
                 case .success(let response):
                     if let data = response?.data {
+                        LogedInUser.shared.grades = data.grades
                         self?.checkLogedInUser()
                     }else{
                         let error = NetWorkError(errorType: ElShamelErrorType.serverError)
