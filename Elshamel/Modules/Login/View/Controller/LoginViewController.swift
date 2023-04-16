@@ -63,7 +63,7 @@ extension LoginViewController: loginDelegate {
     func register() {
         let storybord = UIStoryboard(name: "Register", bundle: nil)
         let vc = storybord.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-            present(vc, animated: false, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
     
     func login(email: String?, password: String?) {
