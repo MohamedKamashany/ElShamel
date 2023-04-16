@@ -12,9 +12,7 @@ import Foundation
 protocol RegisterPresenterProtocol {
     var view: RegisterViewProtocol? { get set }
     func presentVerificationView()
-//    func presentLoader()
-//    func hideLoader()
-//    func showError(_ error: NetWorkError)
+    func showError(_ error: NetWorkError)
 }
 
 class RegisterPresenter: RegisterPresenterProtocol {
@@ -25,13 +23,11 @@ class RegisterPresenter: RegisterPresenterProtocol {
     func presentVerificationView() {
         view?.showVerificationView()
     }
-  
-    func hideLoader() {
-        
-    }
     
     func showError(_ error: NetWorkError) {
-        
+        if let message = error.errorType?.getMessage() {
+            view?.showError(with: message)
+        }
     }
     
 }

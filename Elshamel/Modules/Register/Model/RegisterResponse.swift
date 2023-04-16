@@ -10,7 +10,7 @@ import Foundation
 class RegisterResponse: Codable {
     var data: RegisterData?
     var message: String?
-//    var errors: AnyObject?
+    var errors: [String:[String]]?
 }
 
 class RegisterData: Codable {
