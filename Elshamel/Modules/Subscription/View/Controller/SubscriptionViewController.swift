@@ -28,10 +28,6 @@ class SubscriptionViewController: UIViewController {
         config()
         setUpTableView()
         self.interactor?.getSubscriptionData()
-        DispatchQueue.main.async {
-            self.subscriptionTableView.reloadData()
-        }
-        print(plans)
     }
     
     private func config() {
@@ -112,7 +108,7 @@ extension SubscriptionViewController: SubscriptionViewProtocol {
     func plansView(palns: [PlansData]) {
         DispatchQueue.main.async {
             self.plans = palns
-            subscriptionTableView.reloadData()
+            self.subscriptionTableView.reloadData()
         }
     }
 }

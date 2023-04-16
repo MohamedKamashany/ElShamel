@@ -9,7 +9,7 @@ import UIKit
 
 protocol RegisterTableViewCellDelegate {
     func backToLogin()
-    func register(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String)
+    func register(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String, gender: String)
 //    func setGener(with gender:String)
 //    func setPosition(with position:String)
 }
@@ -37,9 +37,21 @@ class RegisterTableViewCell: UITableViewCell {
     
    // var loginBtnClicked: (()->())?
     var delegate:RegisterTableViewCellDelegate?
+    var isStudent = true
+    var isMale = true
+    var gender = "Male"
     
     override func awakeFromNib() {
         super.awakeFromNib()
+       setUpTxt()
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+    }
+    
+    func setUpTxt() {
         registerButton.layer.cornerRadius = 15
         nameTextField.layer.borderColor = UIColor.white.cgColor
         nameTextField.layer.borderWidth = 1
@@ -59,16 +71,10 @@ class RegisterTableViewCell: UITableViewCell {
         educationalLevelTextField.layer.borderColor = UIColor.white.cgColor
         educationalLevelTextField.layer.borderWidth = 1
         educationalLevelTextField.layer.cornerRadius = 10
-        
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
     }
     
     @IBAction func regissterButton(_ sender: Any) {
-        delegate?.register(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, confirmPass: confirmPasswordTextField.text!, phone: phoneNumberTextField.text!, educationalLevel: educationalLevelTextField.text!)
+        delegate?.register(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, confirmPass: confirmPasswordTextField.text!, phone: phoneNumberTextField.text!, educationalLevel: educationalLevelTextField.text!, gender: gender)
     }
     
     @IBAction func loginBtn(_ sender: Any) {
@@ -88,21 +94,31 @@ class RegisterTableViewCell: UITableViewCell {
     @IBAction func teacherBtn(_ sender: Any) {
         teacherButton.setImage(UIImage(named: "mark 1"), for: .normal)
         studentButton.setImage(UIImage(named: "mark"), for: .normal)
+        isStudent = false
     }
     
     @IBAction func studentBtn(_ sender: Any) {
         studentButton.setImage(UIImage(named: "mark 1"), for: .normal)
         teacherButton.setImage(UIImage(named: "mark"), for: .normal)
+        isStudent = true
     }
     
     @IBAction func maleBtn(_ sender: Any) {
         maleButton.setImage(UIImage(named: "mark 1"), for: UIControl.State.normal)
         femaleButton.setImage(UIImage(named: "mark"), for: .normal)
+        isMale = true
+        if isMale == true {
+            gender = "Male"
+        }
     }
     
     @IBAction func femaleBtn(_ sender: Any) {
         femaleButton.setImage(UIImage(named: "mark 1"), for: .normal)
         maleButton.setImage(UIImage(named: "mark"), for: UIControl.State.normal)
+        isMale = false
+        if isMale == false {
+            gender = "Female"
+        }
     }
     
     

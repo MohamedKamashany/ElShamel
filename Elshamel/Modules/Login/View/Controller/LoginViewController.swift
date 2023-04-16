@@ -61,7 +61,7 @@ extension LoginViewController: UITableViewDelegate, UITableViewDataSource {
 extension LoginViewController: loginDelegate {
 
     func register() {
-        let storybord = UIStoryboard(name: "Main", bundle: nil)
+        let storybord = UIStoryboard(name: "Register", bundle: nil)
         let vc = storybord.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
             present(vc, animated: false, completion: nil)
     }

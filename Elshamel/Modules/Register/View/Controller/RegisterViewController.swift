@@ -68,21 +68,25 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension RegisterViewController: RegisterTableViewCellDelegate {
     
-    func register(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String) {
-        interactor?.register()
+    func register(name: String,
+                  email: String,
+                  password: String,
+                  confirmPass: String,
+                  phone: String,
+                  educationalLevel: String,
+                  gender: String) {
+        interactor?.register(name: name,
+                             email: email,
+                             password: password,
+                             confirmPass: confirmPass,
+                             phone: phone,
+                             educationalLevel: educationalLevel,
+                             gender: gender)
     }
     
     
     func backToLogin() {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func register() {
-//        interactor?.register()
-//        let storybord = UIStoryboard(name: "Main", bundle: nil)
-//        let destination = storybord.instantiateViewController(withIdentifier: "VerificationViewController") as! VerificationViewController
-//        navigationController?.pushViewController(destination, animated: true)
-//        present(destination, animated: true, completion: nil)
     }
     
 }

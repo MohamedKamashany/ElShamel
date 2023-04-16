@@ -10,44 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Register View Controller-->
-        <scene sceneID="KBG-ba-VPs">
-            <objects>
-                <viewController storyboardIdentifier="RegisterViewController" modalPresentationStyle="fullScreen" id="gv7-YL-cdK" customClass="RegisterViewController" customModule="Elshamel" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vvd-ZI-5xJ">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="4aD-YZ-d1X">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VjA-Nr-V4N">
-                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="gvf-7P-Ijr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="4aD-YZ-d1X" firstAttribute="leading" secondItem="vvd-ZI-5xJ" secondAttribute="leading" id="CV5-fE-QOT"/>
-                            <constraint firstItem="4aD-YZ-d1X" firstAttribute="trailing" secondItem="vvd-ZI-5xJ" secondAttribute="trailing" id="FkM-7D-kdZ"/>
-                            <constraint firstItem="VjA-Nr-V4N" firstAttribute="leading" secondItem="gvf-7P-Ijr" secondAttribute="leading" id="IsT-w0-jq8"/>
-                            <constraint firstItem="4aD-YZ-d1X" firstAttribute="bottom" secondItem="vvd-ZI-5xJ" secondAttribute="bottom" id="Oh0-qo-meY"/>
-                            <constraint firstItem="gvf-7P-Ijr" firstAttribute="trailing" secondItem="VjA-Nr-V4N" secondAttribute="trailing" id="eqb-g2-mHX"/>
-                            <constraint firstItem="VjA-Nr-V4N" firstAttribute="top" secondItem="gvf-7P-Ijr" secondAttribute="top" id="gL5-YQ-eII"/>
-                            <constraint firstItem="gvf-7P-Ijr" firstAttribute="bottom" secondItem="VjA-Nr-V4N" secondAttribute="bottom" id="i7g-vz-6wc"/>
-                            <constraint firstItem="4aD-YZ-d1X" firstAttribute="top" secondItem="vvd-ZI-5xJ" secondAttribute="top" id="kUq-hn-Yfe"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundImageView" destination="4aD-YZ-d1X" id="PTS-1Z-k6M"/>
-                        <outlet property="registerTableView" destination="VjA-Nr-V4N" id="UfR-Tm-hLK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ewq-8O-Mu2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4307.9439252336442" y="-115.33477321814256"/>
-        </scene>
         <!--Verification View Controller-->
         <scene sceneID="Xxx-w5-fCM">
             <objects>

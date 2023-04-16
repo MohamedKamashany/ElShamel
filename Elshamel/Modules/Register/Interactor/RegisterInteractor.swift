@@ -12,7 +12,7 @@ import Alamofire
 
 protocol RegisterInteractorProtocol {
     var presenter: RegisterPresenterProtocol? { get set }
-    func register()
+    func register(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String, gender: String)
 }
 
 
@@ -21,12 +21,50 @@ class RegisterInteractor: RegisterInteractorProtocol {
     
     var presenter: RegisterPresenterProtocol?
 
-    func register() {
+    func register(name: String,
+                  email: String,
+                  password: String,
+                  confirmPass: String,
+                  phone: String,
+                  educationalLevel: String,
+                  gender: String) {
+        guard !name.isEmpty else {
+            print("empty name")
+            return
+        }
+        
+        guard !email.isEmpty, email.isValidEmail else {
+            print("empty email")
+            return
+        }
+        
+        guard !password.isEmpty, password.count >= 6 else {
+            print("empty password")
+            return
+        }
+        
+        guard confirmPass == password else {
+            print("password not confirm")
+            return
+        }
+        
+        guard !phone.isEmpty else {
+            print("empty phone")
+            return
+        }
+        
+        guard !educationalLevel.isEmpty else {
+            print("educantion is empty")
+            return
+        }
+        
         let headers: [String: String] = ["Accept": "application/json"]
-        let parameters = ["name": "mohamed",
-                          "email": "teacher201@gmail.com",
-                          "phone": "01097495853",
-                          "gender": "Male",
+        let parameters = ["name": name,
+                          "email": email,
+                          "phone": phone,
+                          "gender": gender,
+                          "password": password,
+                          "password_confirmation": confirmPass,
                           "material_id": "1",
                           "device_id": "device_token",
                           "login_method": "apple",
@@ -40,7 +78,7 @@ class RegisterInteractor: RegisterInteractorProtocol {
             case.success(let data):
                 if let data = data {
                     DispatchQueue.main.async {
-//                        self?.presenter?.presentVerificationView()
+                        self?.presenter?.presentVerificationView()
                         print(data.message ?? "")
                     }
                 }else {
@@ -50,5 +88,26 @@ class RegisterInteractor: RegisterInteractorProtocol {
                 print(error)
             }
         }
+    }
+}
+
+
+extension String {
+    var isValidUsername :Bool {
+        return self.count > 3
+    }
+    var isValidEmail : Bool {
+        let format = "^[_A-Za-z0-9-\\+]+(\\.[A-Za-z0-9-]=)*@"
+        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", format)
+        return predicate.evaluate(with: self)
+    }
+    var isValidMobile : Bool {
+        let format = "^(009665|9665|\\+9665|05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7}$)"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", format)
+        return predicate.evaluate(with: self)
+    }
+    var isValidPassword : Bool {
+        return self.count > 5
     }
 }
