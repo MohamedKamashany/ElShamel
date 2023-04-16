@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RegisterViewProtocol {
+protocol RegisterViewProtocol: LoaderView, ErrorView {
     var interactor: RegisterInteractorProtocol? { get set }
     func showVerificationView()
 }
@@ -94,8 +94,20 @@ extension RegisterViewController: RegisterTableViewCellDelegate {
 extension RegisterViewController: RegisterViewProtocol {
      
     func showVerificationView() {
-        let teacherView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VerificationViewController") as! VerificationViewController
-        present(teacherView, animated: true, completion: nil)
+        DispatchQueue.main.async {[weak self] in
+            let teacherView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VerificationViewController") as! VerificationViewController
+            self?.present(teacherView, animated: true, completion: nil)
+        }
     }
+    
+    func showError(with message: String) {
+        DispatchQueue.main.async {[weak self] in
+            let alert = UIAlertController(title:"", message: message , preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "اوك", style: .cancel, handler: nil))
+            self?.present(alert, animated: true)
+        }
+    }
+    
+    func hideErrorView() {}
 }
 
