@@ -15,10 +15,11 @@ enum ElShamelErrorType: Error {
     case uploadError
     case couldNotParseJson
     case serverError
-    case validationError
+    case validationError(String)
     case unauthenticated
     case couldNotEncodeBodyToJSON
     case badURL
+    case backendError(String)
     
     func getMessage() -> String {
         switch self {
@@ -26,6 +27,10 @@ enum ElShamelErrorType: Error {
             return "لا يوجد انترنت "
         case .unauthenticated:
             return "المستخدم غير مسجل من قبل"
+        case .backendError(let message):
+            return message
+        case .validationError(let message):
+            return message
         default:
             return "يوجد خطأ برجاء المحاولة بعد قليل"
         }

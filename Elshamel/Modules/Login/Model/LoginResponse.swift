@@ -44,7 +44,7 @@ import Foundation
 struct LoginResponse: Codable {
     let data: DataClass
     let message: String
-    let errors: Errors
+    let errors: Dictionary<String,[String]>?
 }
 
 // MARK: - DataClass
@@ -77,8 +77,4 @@ struct Account: Codable {
         //case studentExamsAvgScore = "student_exams_avg_score"
         case isClever = "is_clever"
     }
-}
-
-// MARK: - Errors
-struct Errors: Codable {
 }
