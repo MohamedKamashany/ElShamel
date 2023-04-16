@@ -130,8 +130,10 @@ extension MainViewController: SideMenuViewControllerDelegate {
             let exitMes = UIAlertController(title: "تسجيل الخروج", message: "" , preferredStyle: .alert)
             exitMes.addAction(UIAlertAction(title: "الغاء", style: .cancel, handler: nil))
             exitMes.addAction(UIAlertAction(title: "خروج", style: .destructive, handler: { _ in
-                let view = UIStoryboard(name: "Splash", bundle: nil).instantiateViewController(withIdentifier: "SplashViewController") as! SplashViewController
-                self.present(view, animated: true, completion: nil)
+                LogedInUser.shared.token = nil
+                LogedInUser.shared.userData = nil
+                guard let view = LoginConfigurator().createModule() else { return }
+                self.present(view, animated: true)
             }))
             present(exitMes, animated: true)
         default:
