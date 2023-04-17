@@ -19,23 +19,13 @@ class VerificationViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var verificationTableView: UITableView!
     
     var interactor: VerificationInteractorProtocol?
+    var email:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        config()
         verificationTableView.delegate = self
         verificationTableView.dataSource = self
         verificationTableView.register(UINib(nibName: "VerificationTableViewCell", bundle: nil), forCellReuseIdentifier: "VerificationTableViewCell")
-    }
-    
-    private func config() {
-        let presenter = VerificationPresenter()
-        presenter.view = self
-
-        let interactor = VerificationInteractor()
-        interactor.presenter = presenter
-
-        self.interactor = interactor
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,10 +44,7 @@ class VerificationViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func verification(code: String) {
-        interactor?.verify(code: code)
-//        let storybord = UIStoryboard(name: "Main", bundle: nil)
-//        let destnation = storybord.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-//        present(destnation, animated: true, completion: nil)
+        interactor?.verify(code: code, email: email)
     }
 }
 

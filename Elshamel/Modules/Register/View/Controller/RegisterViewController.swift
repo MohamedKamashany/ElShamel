@@ -9,7 +9,7 @@ import UIKit
 
 protocol RegisterViewProtocol: LoaderView, ErrorView {
     var interactor: RegisterInteractorProtocol? { get set }
-    func showVerificationView()
+    func showVerificationView(for email:String)
 }
 
 
@@ -93,9 +93,10 @@ extension RegisterViewController: RegisterTableViewCellDelegate {
 
 extension RegisterViewController: RegisterViewProtocol {
      
-    func showVerificationView() {
+    func showVerificationView(for email:String) {
         DispatchQueue.main.async {[weak self] in
-            guard let view = VerificationConfigurator().createModule() else { return }
+            guard let view = VerificationConfigurator().createModule() as? VerificationViewController else { return }
+            view.email = email
             self?.present(view, animated: true)
         }
     }

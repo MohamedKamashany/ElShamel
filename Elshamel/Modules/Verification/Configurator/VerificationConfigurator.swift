@@ -15,15 +15,11 @@ class VerificationConfigurator: ParentRouter {
             return nil
         }
         view.modalPresentationStyle = .fullScreen
-//        let navigationController = UINavigationController(rootViewController: view)
-//        navigationController.isNavigationBarHidden = true
-//        navigationController.modalPresentationStyle = .fullScreen
-//        let presenter = LoginPresenter()
-//        let interactor = LoginInteractor()
-//        presenter.view = view
-//        interactor.presenter = presenter
-//        view.interactor = interactor
-        
+        let presenter = VerificationPresenter()
+        let interactor = VerificationInteractor()
+        presenter.view = view
+        interactor.presenter = presenter
+        view.interactor = interactor
         return view
     }
 }

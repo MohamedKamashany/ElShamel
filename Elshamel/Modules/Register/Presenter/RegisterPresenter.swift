@@ -11,7 +11,7 @@ import Foundation
 
 protocol RegisterPresenterProtocol {
     var view: RegisterViewProtocol? { get set }
-    func presentVerificationView()
+    func presentVerificationView(for email:String)
     func showError(_ error: NetWorkError)
 }
 
@@ -20,8 +20,8 @@ class RegisterPresenter: RegisterPresenterProtocol {
     var view: RegisterViewProtocol?
     
     
-    func presentVerificationView() {
-        view?.showVerificationView()
+    func presentVerificationView(for email:String) {
+        view?.showVerificationView(for: email)
     }
     
     func showError(_ error: NetWorkError) {

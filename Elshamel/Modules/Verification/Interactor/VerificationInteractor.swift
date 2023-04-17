@@ -11,7 +11,7 @@ import UIKit
 
 protocol VerificationInteractorProtocol {
     var presenter: VerificationPresenterProtocol? { get set }
-    func verify(code: String)
+    func verify(code: String, email: String?)
 }
 
 
@@ -19,10 +19,13 @@ class VerificationInteractor: VerificationInteractorProtocol {
     
     var presenter: VerificationPresenterProtocol?
     
-    func verify(code: String) {
+    func verify(code: String, email: String?) {
+        guard let email = email else { return }
         let parameters = ["verification_code": code,
-                          "device_id": "device_id",
-                          "email": "mohamed.moussa.soli@gmail.com"]
+                          "email": email,
+                          "device_id": "device_id"
+                          ]
+        //TODO: if there is internet connection or not.
         presenter?.view?.startLoading()
         NetworkManager.shared.processReq(url: .verify,
                                          method: .post,

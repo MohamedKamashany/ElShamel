@@ -38,7 +38,7 @@ class RegisterInteractor: RegisterInteractorProtocol {
             return
         }
         
-        guard !password.isEmpty, password.count >= 6 else {
+        guard !password.isEmpty, password.count >= 8 else {
             presenter?.showError(NetWorkError(errorType: ElShamelErrorType.validationError("لا يوجد باسورد")))
             return
         }
@@ -81,7 +81,11 @@ class RegisterInteractor: RegisterInteractorProtocol {
             case.success(let response):
                  if let data = response?.data {
                     DispatchQueue.main.async {
-                        self?.presenter?.presentVerificationView()
+                        //LogedInUser.shared.userData = data.account
+                        LogedInUser.shared.token = data.token
+                        if let userMail = data.account?.email {
+                            self?.presenter?.presentVerificationView(for: userMail)
+                        }
                         print(response?.message ?? "")
                     }
                  }else if let errors = response?.errors {

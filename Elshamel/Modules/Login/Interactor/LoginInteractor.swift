@@ -53,7 +53,12 @@ class LoginInteractor: LoginInteractorProtocol {
                     if let data = response?.data {
                         LogedInUser.shared.token = data.token
                         LogedInUser.shared.userData  = data.account
-                        self?.presenter?.presentHomeScreen()
+                        if data.account.isVerified  {
+                            self?.presenter?.presentHomeScreen()
+                        }else{
+                            //TODO: redirect to verification screen.
+                        }
+                        
                     }else{
                         let error = NetWorkError(errorType: ElShamelErrorType.serverError)
                         self?.presenter?.showError(error)
