@@ -9,7 +9,7 @@ import UIKit
 import AROTPTextField
 
 protocol VerificationDelegat {
-    func verification()
+    func verification(code: String)
 }
 
 
@@ -39,6 +39,7 @@ class VerificationTableViewCell: UITableViewCell, AROTPTextFieldDelegate {
     }
     
     func didUserFinishEnter(the code: String) {
+        delegat?.verification(code: code)
         print(code)
     }
     
@@ -74,7 +75,7 @@ class VerificationTableViewCell: UITableViewCell, AROTPTextFieldDelegate {
     }
     
     @IBAction func verificationBtn(_ sender: Any) {
-        delegat?.verification()
+//        delegat?.verification()
     }
     
 }

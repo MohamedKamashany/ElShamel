@@ -39,6 +39,8 @@
 		27DB3B4329B4EBB700F54F52 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB3B4229B4EBB700F54F52 /* UserData.swift */; };
 		27DB3B4729B4EC4C00F54F52 /* PushNotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB3B4629B4EC4C00F54F52 /* PushNotificationPresenter.swift */; };
 		7E6BB2821833B321C4FE98A2 /* Pods_Elshamel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A015CACFEB2DF5AF9AE02BD /* Pods_Elshamel.framework */; };
+		D41C7DE129ECD46E002C76DB /* VerificationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41C7DE029ECD46E002C76DB /* VerificationConfigurator.swift */; };
+		D41C7DE329ECD4F5002C76DB /* Verifaication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41C7DE229ECD4F5002C76DB /* Verifaication.storyboard */; };
 		D471EA21295C615700D4C1EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471EA20295C615700D4C1EB /* AppDelegate.swift */; };
 		D471EA23295C615700D4C1EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471EA22295C615700D4C1EB /* SceneDelegate.swift */; };
 		D471EA28295C615700D4C1EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D471EA26295C615700D4C1EB /* Main.storyboard */; };
@@ -55,6 +57,9 @@
 		D4776364296C63DB00509CD8 /* SendMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4776363296C63DB00509CD8 /* SendMessageViewController.swift */; };
 		D477C8442977DF3F008340D9 /* AnswerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D477C8432977DF3F008340D9 /* AnswerImageView.swift */; };
 		D477C8462977DF4F008340D9 /* AnswerImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D477C8452977DF4F008340D9 /* AnswerImageView.xib */; };
+		D4781ABB29ED569900F57BCC /* VerificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4781ABA29ED569900F57BCC /* VerificationResponse.swift */; };
+		D4781ABD29ED570700F57BCC /* VerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4781ABC29ED570700F57BCC /* VerificationPresenter.swift */; };
+		D4781ABF29ED57B600F57BCC /* VerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4781ABE29ED57B600F57BCC /* VerificationInteractor.swift */; };
 		D478D08529E406500082D7D8 /* SubscriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D478D08429E406500082D7D8 /* SubscriptionPresenter.swift */; };
 		D478D08729E406CB0082D7D8 /* SubscriptionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D478D08629E406CB0082D7D8 /* SubscriptionInteractor.swift */; };
 		D47BC885297ECDDF005E3631 /* MyStudentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BC883297ECDDF005E3631 /* MyStudentsTableViewCell.swift */; };
@@ -162,6 +167,8 @@
 		27DB3B4629B4EC4C00F54F52 /* PushNotificationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationPresenter.swift; sourceTree = "<group>"; };
 		7A015CACFEB2DF5AF9AE02BD /* Pods_Elshamel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elshamel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8323BB5372011C8D8F6F64C6 /* Pods-Elshamel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elshamel.debug.xcconfig"; path = "Target Support Files/Pods-Elshamel/Pods-Elshamel.debug.xcconfig"; sourceTree = "<group>"; };
+		D41C7DE029ECD46E002C76DB /* VerificationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationConfigurator.swift; sourceTree = "<group>"; };
+		D41C7DE229ECD4F5002C76DB /* Verifaication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Verifaication.storyboard; sourceTree = "<group>"; };
 		D471EA1D295C615700D4C1EB /* Elshamel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elshamel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D471EA20295C615700D4C1EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D471EA22295C615700D4C1EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +189,9 @@
 		D4776363296C63DB00509CD8 /* SendMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageViewController.swift; sourceTree = "<group>"; };
 		D477C8432977DF3F008340D9 /* AnswerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerImageView.swift; sourceTree = "<group>"; };
 		D477C8452977DF4F008340D9 /* AnswerImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerImageView.xib; sourceTree = "<group>"; };
+		D4781ABA29ED569900F57BCC /* VerificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationResponse.swift; sourceTree = "<group>"; };
+		D4781ABC29ED570700F57BCC /* VerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationPresenter.swift; sourceTree = "<group>"; };
+		D4781ABE29ED57B600F57BCC /* VerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationInteractor.swift; sourceTree = "<group>"; };
 		D478D08429E406500082D7D8 /* SubscriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionPresenter.swift; sourceTree = "<group>"; };
 		D478D08629E406CB0082D7D8 /* SubscriptionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionInteractor.swift; sourceTree = "<group>"; };
 		D47BC883297ECDDF005E3631 /* MyStudentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStudentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -287,6 +297,7 @@
 			children = (
 				2721EDC129E9A8F5004F068E /* Home */,
 				2721ED9C29E45B1C004F068E /* Register */,
+				D48D78B6299E6489009F099B /* Verification */,
 				D476951029E349A90052C3C8 /* Subscription */,
 				D475E1D1296EFE220096A08A /* Onbording */,
 				D483B74329E2F602005BE44B /* ForgetPassword */,
@@ -576,6 +587,65 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D41C7DD929ECD3B5002C76DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D41C7DDB29ECD3D5002C76DB /* Controller */,
+				D41C7DDA29ECD3D0002C76DB /* UI */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D41C7DDA29ECD3D0002C76DB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D41C7DE229ECD4F5002C76DB /* Verifaication.storyboard */,
+				D481E0B229631BA60055F6AE /* VerificationTableViewCell.swift */,
+				D481E0B329631BA60055F6AE /* VerificationTableViewCell.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D41C7DDB29ECD3D5002C76DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D481E0B629631D3A0055F6AE /* VerificationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D41C7DDC29ECD3F6002C76DB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D4781ABE29ED57B600F57BCC /* VerificationInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D41C7DDD29ECD408002C76DB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D4781ABC29ED570700F57BCC /* VerificationPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D41C7DDE29ECD414002C76DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4781ABA29ED569900F57BCC /* VerificationResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D41C7DDF29ECD443002C76DB /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				D41C7DE029ECD46E002C76DB /* VerificationConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 		D471EA14295C615700D4C1EB = {
 			isa = PBXGroup;
 			children = (
@@ -608,7 +678,6 @@
 				D471EA26295C615700D4C1EB /* Main.storyboard */,
 				D48B04B029801844000C9996 /* StudentView */,
 				D48B04B5298019B9000C9996 /* TeacherView */,
-				D48D78B6299E6489009F099B /* Verification */,
 				D476951429E34A960052C3C8 /* Students */,
 				D481B01E2966FF7000DA60F0 /* ExamResultViewController.swift */,
 				D481B0202966FFBD00DA60F0 /* ExamResultTableViewCell.swift */,
@@ -836,9 +905,11 @@
 		D48D78B6299E6489009F099B /* Verification */ = {
 			isa = PBXGroup;
 			children = (
-				D481E0B629631D3A0055F6AE /* VerificationViewController.swift */,
-				D481E0B229631BA60055F6AE /* VerificationTableViewCell.swift */,
-				D481E0B329631BA60055F6AE /* VerificationTableViewCell.xib */,
+				D41C7DDF29ECD443002C76DB /* Configurator */,
+				D41C7DDE29ECD414002C76DB /* Model */,
+				D41C7DDD29ECD408002C76DB /* Presenter */,
+				D41C7DDC29ECD3F6002C76DB /* Interactor */,
+				D41C7DD929ECD3B5002C76DB /* View */,
 			);
 			path = Verification;
 			sourceTree = "<group>";
@@ -987,6 +1058,7 @@
 				D48AFF1E2976C6AD00668F7E /* AnswerLableTableViewCell.xib in Resources */,
 				D48AA1D629782E39000EC87A /* AnswerCollectionViewCell.xib in Resources */,
 				D481E0B529631BA60055F6AE /* VerificationTableViewCell.xib in Resources */,
+				D41C7DE329ECD4F5002C76DB /* Verifaication.storyboard in Resources */,
 				D481B0232966FFBD00DA60F0 /* ExamResultTableViewCell.xib in Resources */,
 				D471EA2D295C615A00D4C1EB /* LaunchScreen.storyboard in Resources */,
 				D48B04C629802DA2000C9996 /* FollowTableViewCell.xib in Resources */,
@@ -1094,12 +1166,14 @@
 				D48B04C9298031DA000C9996 /* FollowCollectionViewCell.swift in Sources */,
 				D49EC02229C4C157009ADAA3 /* SplashPresenter.swift in Sources */,
 				D483B74D29E2F7B5005BE44B /* ForgetPasswordViewController.swift in Sources */,
+				D4781ABF29ED57B600F57BCC /* VerificationInteractor.swift in Sources */,
 				2721EDCC29E9A9A0004F068E /* HomeConfigurator.swift in Sources */,
 				2721ED8C29E3960D004F068E /* OnboardingCollectionViewCell.swift in Sources */,
 				2721ED9329E3960D004F068E /* LoginTableViewCell.swift in Sources */,
 				2721ED8D29E3960D004F068E /* PaginationViewController.swift in Sources */,
 				D48AFF1C2976C68700668F7E /* AnswerLableTableViewCell.swift in Sources */,
 				2721ED6229DC5060004F068E /* ParentRouter.swift in Sources */,
+				D4781ABB29ED569900F57BCC /* VerificationResponse.swift in Sources */,
 				D47BC888297ECE5E005E3631 /* TeacherViewController.swift in Sources */,
 				D4FD848C297EEC3A0069AD00 /* ExamsCollectionViewCell.swift in Sources */,
 				D483B75329E30898005BE44B /* ForgetPasswordPresenter.swift in Sources */,
@@ -1116,6 +1190,7 @@
 				D48AA1D529782E39000EC87A /* AnswerCollectionViewCell.swift in Sources */,
 				D4935AC6297D5A980028AF2B /* SideMenuViewController.swift in Sources */,
 				D471EA21295C615700D4C1EB /* AppDelegate.swift in Sources */,
+				D4781ABD29ED570700F57BCC /* VerificationPresenter.swift in Sources */,
 				2721ED9529E3960D004F068E /* LoginConfigurator.swift in Sources */,
 				D48B04C129802AE9000C9996 /* VideoCollectionViewCell.swift in Sources */,
 				D48B04B329801886000C9996 /* SubjectsTableViewCell.swift in Sources */,
@@ -1132,6 +1207,7 @@
 				D48B04AF29801089000C9996 /* StudentViewController.swift in Sources */,
 				D481E0B729631D3A0055F6AE /* VerificationViewController.swift in Sources */,
 				2721EDAB29E45B1C004F068E /* RegisterResponse.swift in Sources */,
+				D41C7DE129ECD46E002C76DB /* VerificationConfigurator.swift in Sources */,
 				D48AA1D829783283000EC87A /* AnswersViewController.swift in Sources */,
 				D486DA3B2965C4AC0088ECE9 /* StudentsViewController.swift in Sources */,
 				D48707BC29705E0A0006299B /* QuestionsResponse.swift in Sources */,

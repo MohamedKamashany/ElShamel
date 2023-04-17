@@ -10,44 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Verification View Controller-->
-        <scene sceneID="Xxx-w5-fCM">
-            <objects>
-                <viewController storyboardIdentifier="VerificationViewController" modalPresentationStyle="fullScreen" id="9GY-xp-3w2" customClass="VerificationViewController" customModule="Elshamel" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LM7-RR-MOZ">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="mMj-52-Rpl">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qR1-aP-SP5">
-                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="xwJ-TZ-c0U"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="mMj-52-Rpl" secondAttribute="bottom" id="8tx-EO-RV6"/>
-                            <constraint firstItem="mMj-52-Rpl" firstAttribute="leading" secondItem="xwJ-TZ-c0U" secondAttribute="leading" id="BZr-u8-GNj"/>
-                            <constraint firstItem="mMj-52-Rpl" firstAttribute="top" secondItem="LM7-RR-MOZ" secondAttribute="top" id="PTM-5O-WMe"/>
-                            <constraint firstItem="mMj-52-Rpl" firstAttribute="trailing" secondItem="xwJ-TZ-c0U" secondAttribute="trailing" id="cx0-rY-Vn4"/>
-                            <constraint firstItem="xwJ-TZ-c0U" firstAttribute="bottom" secondItem="qR1-aP-SP5" secondAttribute="bottom" id="gSa-iE-7hU"/>
-                            <constraint firstItem="xwJ-TZ-c0U" firstAttribute="trailing" secondItem="qR1-aP-SP5" secondAttribute="trailing" id="gce-nd-IuS"/>
-                            <constraint firstItem="qR1-aP-SP5" firstAttribute="leading" secondItem="xwJ-TZ-c0U" secondAttribute="leading" id="lf7-8N-J5D"/>
-                            <constraint firstItem="qR1-aP-SP5" firstAttribute="top" secondItem="xwJ-TZ-c0U" secondAttribute="top" id="q53-GS-EHG"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="verificationTableView" destination="qR1-aP-SP5" id="CnH-eZ-Zsy"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mKo-qB-ziN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5115.4205607476633" y="-115.33477321814256"/>
-        </scene>
         <!--Teacher View Controller-->
         <scene sceneID="614-BR-GJb">
             <objects>

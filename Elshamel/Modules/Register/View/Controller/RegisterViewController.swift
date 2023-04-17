@@ -95,8 +95,8 @@ extension RegisterViewController: RegisterViewProtocol {
      
     func showVerificationView() {
         DispatchQueue.main.async {[weak self] in
-            let teacherView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VerificationViewController") as! VerificationViewController
-            self?.present(teacherView, animated: true, completion: nil)
+            guard let view = VerificationConfigurator().createModule() else { return }
+            self?.present(view, animated: true)
         }
     }
     

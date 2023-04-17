@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Verification View Controller-->
+        <scene sceneID="O3v-3p-6Fp">
+            <objects>
+                <viewController storyboardIdentifier="VerificationViewController" modalPresentationStyle="fullScreen" id="CW4-JZ-yeQ" customClass="VerificationViewController" customModule="Elshamel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vKW-Gc-9Yn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="Abs-hc-lFd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xtp-Np-ejv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Ny-9c-9JR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Abs-hc-lFd" firstAttribute="trailing" secondItem="5Ny-9c-9JR" secondAttribute="trailing" id="2VE-mT-HjZ"/>
+                            <constraint firstItem="xtp-Np-ejv" firstAttribute="leading" secondItem="5Ny-9c-9JR" secondAttribute="leading" id="IR2-zF-fkT"/>
+                            <constraint firstItem="5Ny-9c-9JR" firstAttribute="bottom" secondItem="xtp-Np-ejv" secondAttribute="bottom" id="OgK-ag-xqJ"/>
+                            <constraint firstItem="xtp-Np-ejv" firstAttribute="top" secondItem="5Ny-9c-9JR" secondAttribute="top" id="UqI-lu-bJ7"/>
+                            <constraint firstItem="5Ny-9c-9JR" firstAttribute="trailing" secondItem="xtp-Np-ejv" secondAttribute="trailing" id="XGj-je-N8A"/>
+                            <constraint firstItem="Abs-hc-lFd" firstAttribute="leading" secondItem="5Ny-9c-9JR" secondAttribute="leading" id="cYy-Tu-zC7"/>
+                            <constraint firstAttribute="bottom" secondItem="Abs-hc-lFd" secondAttribute="bottom" id="e4s-dI-3c2"/>
+                            <constraint firstItem="Abs-hc-lFd" firstAttribute="top" secondItem="vKW-Gc-9Yn" secondAttribute="top" id="zm9-GZ-kTk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="verificationTableView" destination="xtp-Np-ejv" id="wGw-3J-RbI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5R-yC-XRL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5115.4205607476633" y="-115.33477321814256"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image-1" width="414" height="899.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

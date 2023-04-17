@@ -25,7 +25,7 @@ enum EndPointUrls: String {
     case generateToken = "generate_token/"
     case login = "auth/login"
     case register = "teacher/auth/register"
-    case verify = "v1/account/validate_email/"
+    case verify = "teacher/auth/verify"
     case forgetPassword = "auth/reset-password-code"
     case plans = "student/plans"
 }
