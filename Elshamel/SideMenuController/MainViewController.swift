@@ -103,25 +103,25 @@ extension MainViewController: SideMenuViewControllerDelegate {
 //            // pyament
 //            self.showViewController(viewController: TeacherViewController.self, storyboardId: "TeacherViewController")
         case 1:
-//            // Music
-// self.showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
+//            // Subscription
             let view = UIStoryboard(name: "Subscription", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionViewController") as! SubscriptionViewController
             self.present(view, animated: true, completion: nil)
 //        case 2:
-//            // Movies
+//            // Rate the app
 //            self.showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
 //        case 3:
-//            // Books
+//            // Share the app
 //            self.showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
 //        case 4:
-//            // Profile
+//            // Property rights
 ////            self.showViewController(viewController: StudentViewController.self, storyboardId: "StudentViewController")
 //            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 //            let profileModalVC = storyboard.instantiateViewController(withIdentifier: "StudentViewController") as? StudentViewController
 //            present(profileModalVC!, animated: true, completion: nil)
-//        case 5:
-//            // Settings
-//            self.showViewController(viewController: StudentViewController.self, storyboardId: "StudentViewController")
+        case 5:
+//            // SendMessage
+            guard let view = SendMessageConfigurator().createModule() else { return }
+            self.present(view, animated: true)
         case 6:
 ////            // Like us on facebook
 ////            let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/johncodeos")!)

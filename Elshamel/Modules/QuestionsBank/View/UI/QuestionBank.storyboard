@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Questions Bank View Controller-->
+        <scene sceneID="36i-mx-fxo">
+            <objects>
+                <viewController storyboardIdentifier="QuestionsBankViewController" modalPresentationStyle="fullScreen" id="uJM-Qb-imt" customClass="QuestionsBankViewController" customModule="Elshamel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kAX-df-Dig">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="xil-gw-7yk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="physi" translatesAutoresizingMaskIntoConstraints="NO" id="EPO-tr-d1u">
+                                <rect key="frame" x="157" y="44" width="100" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="MYx-QI-6K9"/>
+                                    <constraint firstAttribute="height" constant="75" id="ss3-al-Dtz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الفيزياء" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nj-vJ-p0X">
+                                <rect key="frame" x="157" y="119" width="100" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="ZyK-dO-K5j"/>
+                                    <constraint firstAttribute="width" constant="100" id="lHV-uQ-1TB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="بنك الاسئله" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXq-FU-8Sn">
+                                <rect key="frame" x="217" y="161" width="172" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="GP2-Yu-toh"/>
+                                    <constraint firstAttribute="height" constant="43" id="LL2-mL-SYX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-dc-QBl">
+                                <rect key="frame" x="20" y="214" width="374" height="490"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHY-Ro-aKM">
+                                <rect key="frame" x="255" y="744" width="139" height="39"/>
+                                <color key="backgroundColor" red="0.0084140915420000007" green="0.3898709118" blue="0.66401940579999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="EiU-pI-UIW"/>
+                                    <constraint firstAttribute="width" constant="139" id="Lxi-GX-8xo"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="التالي"/>
+                                <connections>
+                                    <action selector="nextBtn:" destination="uJM-Qb-imt" eventType="touchUpInside" id="hIp-M4-BGp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2P-Cg-VzD">
+                                <rect key="frame" x="20" y="744" width="139" height="39"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.75770729780000001" blue="0.95791095500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="nOC-sR-shB"/>
+                                    <constraint firstAttribute="width" constant="139" id="o6k-e7-C2s"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="السابق"/>
+                                <connections>
+                                    <action selector="previousBtn:" destination="uJM-Qb-imt" eventType="touchUpInside" id="MUz-IG-j0s"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vRS-fY-pf8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EPO-tr-d1u" firstAttribute="top" secondItem="vRS-fY-pf8" secondAttribute="top" id="1P2-DE-rOd"/>
+                            <constraint firstAttribute="bottom" secondItem="xil-gw-7yk" secondAttribute="bottom" id="93P-UV-N6p"/>
+                            <constraint firstItem="q2P-Cg-VzD" firstAttribute="centerY" secondItem="wHY-Ro-aKM" secondAttribute="centerY" id="ByU-hl-oaQ"/>
+                            <constraint firstItem="xil-gw-7yk" firstAttribute="top" secondItem="kAX-df-Dig" secondAttribute="top" id="GMg-hD-WDL"/>
+                            <constraint firstItem="vRS-fY-pf8" firstAttribute="bottom" secondItem="wHY-Ro-aKM" secondAttribute="bottom" constant="79" id="N20-dM-g6z"/>
+                            <constraint firstItem="xil-gw-7yk" firstAttribute="leading" secondItem="kAX-df-Dig" secondAttribute="leading" id="QdL-OS-Sxx"/>
+                            <constraint firstAttribute="trailing" secondItem="xil-gw-7yk" secondAttribute="trailing" id="RmA-Xo-3N2"/>
+                            <constraint firstItem="EPO-tr-d1u" firstAttribute="centerX" secondItem="kAX-df-Dig" secondAttribute="centerX" id="Rx4-eC-Bld"/>
+                            <constraint firstItem="1nj-vJ-p0X" firstAttribute="centerX" secondItem="kAX-df-Dig" secondAttribute="centerX" id="Tqq-sO-WB1"/>
+                            <constraint firstItem="vRS-fY-pf8" firstAttribute="trailing" secondItem="DmT-dc-QBl" secondAttribute="trailing" constant="20" id="Vcr-qf-W5C"/>
+                            <constraint firstItem="DmT-dc-QBl" firstAttribute="leading" secondItem="vRS-fY-pf8" secondAttribute="leading" constant="20" id="ZgW-0a-Kmq"/>
+                            <constraint firstItem="vRS-fY-pf8" firstAttribute="trailing" secondItem="UXq-FU-8Sn" secondAttribute="trailing" constant="25" id="eGc-Ip-FYa"/>
+                            <constraint firstItem="UXq-FU-8Sn" firstAttribute="top" secondItem="1nj-vJ-p0X" secondAttribute="bottom" constant="8" id="fWT-1H-Tkp"/>
+                            <constraint firstItem="wHY-Ro-aKM" firstAttribute="trailing" secondItem="DmT-dc-QBl" secondAttribute="trailing" id="far-wO-t4R"/>
+                            <constraint firstItem="DmT-dc-QBl" firstAttribute="top" secondItem="UXq-FU-8Sn" secondAttribute="bottom" constant="10" id="jit-Ia-l4V"/>
+                            <constraint firstItem="q2P-Cg-VzD" firstAttribute="leading" secondItem="DmT-dc-QBl" secondAttribute="leading" id="s8Q-gU-5sr"/>
+                            <constraint firstItem="wHY-Ro-aKM" firstAttribute="top" secondItem="DmT-dc-QBl" secondAttribute="bottom" constant="40" id="xK4-oK-eiD"/>
+                            <constraint firstItem="1nj-vJ-p0X" firstAttribute="top" secondItem="EPO-tr-d1u" secondAttribute="bottom" id="yOD-2s-0Io"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TableView" destination="DmT-dc-QBl" id="jSM-aP-hB2"/>
+                        <outlet property="nextButton" destination="wHY-Ro-aKM" id="weX-Oe-zlj"/>
+                        <outlet property="previousButton" destination="q2P-Cg-VzD" id="ZaC-gT-9ci"/>
+                        <outlet property="questionsLbl" destination="UXq-FU-8Sn" id="Pin-yF-fzh"/>
+                        <outlet property="subjectImageView" destination="EPO-tr-d1u" id="mmC-g2-p96"/>
+                        <outlet property="subjectLbl" destination="1nj-vJ-p0X" id="pan-Sp-YwO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tup-Ch-xxt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6002.8037383177571" y="585.74514038876896"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image-1" width="414" height="899.5"/>
+        <image name="physi" width="114" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

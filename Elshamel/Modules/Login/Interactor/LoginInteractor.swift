@@ -53,6 +53,7 @@ class LoginInteractor: LoginInteractorProtocol {
                     if let data = response?.data {
                         LogedInUser.shared.token = data.token
                         LogedInUser.shared.userData  = data.account
+                        print(LogedInUser.shared.token)
                         if data.account.isVerified  {
                             self?.presenter?.presentHomeScreen()
                         }else{

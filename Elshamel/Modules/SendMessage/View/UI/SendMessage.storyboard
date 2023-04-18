@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Send Message View Controller-->
+        <scene sceneID="Ii0-Hh-HsO">
+            <objects>
+                <viewController storyboardIdentifier="SendMessageViewController" modalPresentationStyle="fullScreen" id="ZdJ-S8-LfY" customClass="SendMessageViewController" customModule="Elshamel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gJE-EQ-IKo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="b16-iD-b3j">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_sent 2" translatesAutoresizingMaskIntoConstraints="NO" id="zF5-dN-5Wz">
+                                <rect key="frame" x="162.5" y="76" width="89" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="E8x-dH-xBw"/>
+                                    <constraint firstAttribute="width" constant="89" id="c4O-5G-RW6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ارسل رسالة" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQl-qz-VPI">
+                                <rect key="frame" x="138" y="148" width="138" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="8Iz-OV-BDm"/>
+                                    <constraint firstAttribute="height" constant="34" id="a8B-bA-non"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="عنوان الرساله" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nt7-dV-QcR">
+                                <rect key="frame" x="30" y="209" width="354" height="34"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="KSi-Sq-hQi" customClass="PlaceholderTextView" customModule="PlaceholderTextView">
+                                <rect key="frame" x="30" y="268" width="354" height="128"/>
+                                <color key="backgroundColor" red="0.90020376440000005" green="0.96487754579999996" blue="0.96949154140000005" alpha="0.48750082859999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="aX3-UP-WMw"/>
+                                    <constraint firstAttribute="width" constant="368" id="e1N-OY-EZQ"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaO-qS-xnf">
+                                <rect key="frame" x="245" y="427" width="139" height="39"/>
+                                <color key="backgroundColor" red="0.0084140915420000007" green="0.3898709118" blue="0.66401940579999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="2IW-ml-40W"/>
+                                    <constraint firstAttribute="width" constant="139" id="bpd-cx-LMF"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="ارسال"/>
+                                <connections>
+                                    <action selector="sendBtn:" destination="ZdJ-S8-LfY" eventType="touchUpInside" id="cwo-SQ-8ZY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="64q-5a-Zn4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yQl-qz-VPI" firstAttribute="top" secondItem="zF5-dN-5Wz" secondAttribute="bottom" constant="8" id="0lC-RL-pIa"/>
+                            <constraint firstItem="b16-iD-b3j" firstAttribute="leading" secondItem="64q-5a-Zn4" secondAttribute="leading" id="2gZ-Js-yUH"/>
+                            <constraint firstItem="UaO-qS-xnf" firstAttribute="trailing" secondItem="KSi-Sq-hQi" secondAttribute="trailing" id="5Bh-gL-iZo"/>
+                            <constraint firstItem="64q-5a-Zn4" firstAttribute="trailing" secondItem="nt7-dV-QcR" secondAttribute="trailing" constant="30" id="5HC-Dg-hjh"/>
+                            <constraint firstItem="zF5-dN-5Wz" firstAttribute="centerX" secondItem="gJE-EQ-IKo" secondAttribute="centerX" id="5rL-qL-4LA"/>
+                            <constraint firstItem="UaO-qS-xnf" firstAttribute="top" secondItem="KSi-Sq-hQi" secondAttribute="bottom" constant="31" id="6cA-VN-DQB"/>
+                            <constraint firstAttribute="bottom" secondItem="b16-iD-b3j" secondAttribute="bottom" id="Fi6-pD-Zwy"/>
+                            <constraint firstItem="yQl-qz-VPI" firstAttribute="centerX" secondItem="gJE-EQ-IKo" secondAttribute="centerX" id="G8L-Sf-yn8"/>
+                            <constraint firstItem="KSi-Sq-hQi" firstAttribute="trailing" secondItem="nt7-dV-QcR" secondAttribute="trailing" id="LW9-t3-L23"/>
+                            <constraint firstItem="KSi-Sq-hQi" firstAttribute="leading" secondItem="nt7-dV-QcR" secondAttribute="leading" id="NKQ-cS-FHt"/>
+                            <constraint firstItem="nt7-dV-QcR" firstAttribute="top" secondItem="yQl-qz-VPI" secondAttribute="bottom" constant="27" id="O22-wx-8uS"/>
+                            <constraint firstItem="KSi-Sq-hQi" firstAttribute="top" secondItem="nt7-dV-QcR" secondAttribute="bottom" constant="25" id="fgA-5Z-C5P"/>
+                            <constraint firstItem="b16-iD-b3j" firstAttribute="top" secondItem="gJE-EQ-IKo" secondAttribute="top" id="hX1-UI-mRT"/>
+                            <constraint firstItem="nt7-dV-QcR" firstAttribute="leading" secondItem="64q-5a-Zn4" secondAttribute="leading" constant="30" id="m5A-B5-tlM"/>
+                            <constraint firstItem="zF5-dN-5Wz" firstAttribute="top" secondItem="64q-5a-Zn4" secondAttribute="top" constant="32" id="tTW-bg-ePa"/>
+                            <constraint firstItem="b16-iD-b3j" firstAttribute="trailing" secondItem="64q-5a-Zn4" secondAttribute="trailing" id="yQa-Ar-FS2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backGroundImd" destination="b16-iD-b3j" id="0aG-fB-2xu"/>
+                        <outlet property="messagIcon" destination="zF5-dN-5Wz" id="8OD-Zv-Qdf"/>
+                        <outlet property="messageContentTxt" destination="KSi-Sq-hQi" id="Geh-QW-B7A"/>
+                        <outlet property="messageTitleTXt" destination="nt7-dV-QcR" id="RdA-hl-R0N"/>
+                        <outlet property="sendButton" destination="UaO-qS-xnf" id="e4e-c5-1dH"/>
+                        <outlet property="sendMessageLbl" destination="yQl-qz-VPI" id="aUU-sE-XBs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mgw-0T-miz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7802.8037383177561" y="-115.33477321814256"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image-1" width="414" height="899.5"/>
+        <image name="icn_sent 2" width="89" height="89"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
