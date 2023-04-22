@@ -7,6 +7,13 @@
 
 import UIKit
 
+
+protocol QuestionsBankViewProtocol: LoaderView, ErrorView {
+    var interactor: QuestionsBankInteractorProtocol? { get set }
+    func showSuccessMsg(message: String)
+}
+
+
 class QuestionsBankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var subjectImageView: UIImageView!
@@ -16,7 +23,7 @@ class QuestionsBankViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     
-    
+    var interactor: QuestionsBankInteractorProtocol?
 //    var questions: [Question] = [
 //        Question(name: "", answers: <#T##[Answer]?#>)
 //    ]
@@ -24,6 +31,7 @@ class QuestionsBankViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         setBtns()
+        interactor?.getQuestions(exam_id: 24)
         TableView.delegate = self
         TableView.dataSource = self
         TableView.register(UINib(nibName: "QuestionsBankTableViewCell", bundle: nil), forCellReuseIdentifier: "QuestionsBankTableViewCell")
@@ -66,5 +74,27 @@ class QuestionsBankViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func previousBtn(_ sender: Any) {
         dismiss(animated: true)
     }
+    
+}
+
+
+extension QuestionsBankViewController: QuestionsBankViewProtocol {
+    
+    func showSuccessMsg(message: String) {
+        let successMsg = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        successMsg.addAction(UIAlertAction(title: "حسنا", style: .default, handler: nil))
+        present(successMsg, animated: true)
+    }
+    
+    func showError(with message: String) {
+        let errorMessage = UIAlertController(title: "خطأ", message: message, preferredStyle: .alert)
+        errorMessage.addAction(UIAlertAction(title: "حسنا", style: .cancel, handler: nil))
+        present(errorMessage, animated: true, completion: nil)
+    }
+    
+    func hideErrorView() {
+        
+    }
+    
     
 }

@@ -29,6 +29,8 @@ enum EndPointUrls: String {
     case forgetPassword = "auth/reset-password-code"
     case plans = "student/plans"
     case sendMessage = "messages"
+    case examsStart = "student/exams/start"
+    case getExams = "student/exams/student-exams"
 }
 
 class BasUrls {

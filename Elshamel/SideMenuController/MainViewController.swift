@@ -99,9 +99,10 @@ class MainViewController: UIViewController {
 extension MainViewController: SideMenuViewControllerDelegate {
     func selectedCell(_ row: Int) {
         switch row {
-//        case 0:
+        case 0:
 //            // pyament
-//            self.showViewController(viewController: TeacherViewController.self, storyboardId: "TeacherViewController")
+            guard let view = QuestionBankConfigurator().createModule() else { return }
+            self.present(view, animated: true)
         case 1:
 //            // Subscription
             let view = UIStoryboard(name: "Subscription", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionViewController") as! SubscriptionViewController
