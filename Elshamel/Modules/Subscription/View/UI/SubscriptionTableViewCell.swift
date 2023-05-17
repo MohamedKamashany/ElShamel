@@ -33,6 +33,14 @@ class SubscriptionTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func configure(plans: PlansData) {
+        self.subscripLbl.text = plans.name
+        if let price = plans.price {
+            self.priceLbl.text = "\(price)"
+        }
+        self.descriptionLbl.text = plans.description
+    }
+    
     func config() {
         subscripImageView.image = UIImage(named: "Monthly subscription")
         subscripButton.layer.cornerRadius = 15

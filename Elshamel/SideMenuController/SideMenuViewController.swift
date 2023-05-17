@@ -22,7 +22,6 @@ class SideMenuViewController: UIViewController {
     var defaultHighlightedCell: Int = 0
     
     var menu: [SideMenuModel] = [
-        SideMenuModel(icon: UIImage(named: "pyament")!, title: "وسائل الدفع"),
         SideMenuModel(icon: UIImage(named: "svgexport-7")!, title: "الاشتراكات"),
         SideMenuModel(icon: UIImage(named: "Rate the app")!, title: "قيم التطبيق"),
         SideMenuModel(icon: UIImage(named: "sent")!, title: "شارك التطبيق"),

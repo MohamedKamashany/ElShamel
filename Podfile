@@ -18,4 +18,6 @@ target 'Elshamel' do
   pod 'SwiftyJSON'
   pod 'ReachabilitySwift', '~> 5.0'
   pod 'MBProgressHUD', '~> 1.2.0'
+  pod 'SDWebImage'
+  pod 'DropDown'
 end

@@ -7,11 +7,24 @@
 
 import UIKit
 
-protocol RegisterTableViewCellDelegate {
+enum Position {
+    case student
+    case teacher
+}
+
+protocol SelectPositionProtocol: AnyObject {
+    func didPositionSelect(_ position: Position)
+}
+
+protocol RegisterTableViewCellDelegate: AnyObject {
     func backToLogin()
-    func register(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String, gender: String)
+    func register(name: String, email: String, password: String, confirmPass: String, phone: String, gender: String, gradeID: Int)
 //    func setGener(with gender:String)
 //    func setPosition(with position:String)
+}
+
+protocol TeacherRegister {
+    func teacherRegister(name: String, email: String, password: String, confirmPass: String, phone: String, gender: String, materialID: Int)
 }
 
 class RegisterTableViewCell: UITableViewCell {
@@ -34,21 +47,30 @@ class RegisterTableViewCell: UITableViewCell {
     @IBOutlet weak var conditionsLabel: UILabel!
     @IBOutlet weak var haveAccountLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var educationalLevelButton: UIButton!
     
    // var loginBtnClicked: (()->())?
-    var delegate:RegisterTableViewCellDelegate?
+    weak var delegate: RegisterTableViewCellDelegate?
+    weak var positionDelegate: SelectPositionProtocol?
     var isStudent = true
     var isMale = true
     var gender = "Male"
+    var gradeId: Int?
+    var teacherDelegate: TeacherRegister?
+    var materialID: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       setUpTxt()
+        setUpTxt()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.contentView.endEditing(true)
     }
     
     func setUpTxt() {
@@ -71,10 +93,27 @@ class RegisterTableViewCell: UITableViewCell {
         educationalLevelTextField.layer.borderColor = UIColor.white.cgColor
         educationalLevelTextField.layer.borderWidth = 1
         educationalLevelTextField.layer.cornerRadius = 10
+        educationalLevelTextField.isEnabled = false
     }
     
     @IBAction func regissterButton(_ sender: Any) {
-        delegate?.register(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, confirmPass: confirmPasswordTextField.text!, phone: phoneNumberTextField.text!, educationalLevel: educationalLevelTextField.text!, gender: gender)
+        if isStudent {
+            guard let name = nameTextField.text else { return }
+            guard let email = emailTextField.text else { return }
+            guard let password = passwordTextField.text else { return }
+            guard let confirmPass = confirmPasswordTextField.text else { return }
+            guard let phone = phoneNumberTextField.text else { return }
+            guard let gradeId = gradeId else { return }
+            delegate?.register(name: name, email: email, password: password, confirmPass: confirmPass, phone: phone, gender: gender, gradeID: gradeId)
+        } else {
+            guard let name = nameTextField.text else { return }
+            guard let email = emailTextField.text else { return }
+            guard let password = passwordTextField.text else { return }
+            guard let confirmPass = confirmPasswordTextField.text else { return }
+            guard let phone = phoneNumberTextField.text else { return }
+            guard let materialID = materialID else { return }
+            teacherDelegate?.teacherRegister(name: name, email: email, password: password, confirmPass: confirmPass, phone: phone, gender: gender, materialID: materialID)
+        }
     }
     
     @IBAction func loginBtn(_ sender: Any) {
@@ -82,25 +121,57 @@ class RegisterTableViewCell: UITableViewCell {
         delegate?.backToLogin()
     }
     
-    func config(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String) {
-        nameTextField.text = name
-        emailTextField.text = email
-        passwordTextField.text = password
-        confirmPasswordTextField.text = confirmPass
-        phoneNumberTextField.text = phone
-        educationalLevelTextField.text = educationalLevel
+    func config(with position: Position) {
+        if position == .student {
+            educationalLevelTextField.placeholder = "المرحلة الدراسية*"
+            var actions: [UIAction] = []
+            guard let grades = AppData.shared.grades else { return }
+            for grade in grades {
+                let item = UIAction(title: (grade.name)!) { _ in
+                    self.educationalLevelTextField.text = grade.name
+                    self.gradeId = grade.id
+                }
+                actions.append(item)
+            }
+            let captionMenu = UIMenu(title: "", children: actions)
+            educationalLevelButton.menu = captionMenu
+            educationalLevelButton.showsMenuAsPrimaryAction = true
+            
+        } else { // will be teacher position
+            educationalLevelTextField.placeholder = "المادة الدراسية *"
+            var actions: [UIAction] = []
+            guard let materials = AppData.shared.materials else { return }
+            for material in materials {
+                let item = UIAction(title: (material.name)!) { _ in
+                    self.educationalLevelTextField.text = material.name
+                    self.materialID = material.id
+                }
+                actions.append(item)
+            }
+            let captionMenu = UIMenu(title: "", children: actions)
+            educationalLevelButton.menu = captionMenu
+            educationalLevelButton.showsMenuAsPrimaryAction = true
+        }
     }
+//    func config(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String) {
+//        nameTextField.text = name
+//        emailTextField.text = email
+//        passwordTextField.text = password
+//        confirmPasswordTextField.text = confirmPass
+//        phoneNumberTextField.text = phone
+//        educationalLevelTextField.text = educationalLevel
+//    }
     
     @IBAction func teacherBtn(_ sender: Any) {
         teacherButton.setImage(UIImage(named: "mark 1"), for: .normal)
         studentButton.setImage(UIImage(named: "mark"), for: .normal)
-        isStudent = false
+        positionDelegate?.didPositionSelect(.teacher)
     }
     
     @IBAction func studentBtn(_ sender: Any) {
         studentButton.setImage(UIImage(named: "mark 1"), for: .normal)
         teacherButton.setImage(UIImage(named: "mark"), for: .normal)
-        isStudent = true
+        positionDelegate?.didPositionSelect(.student)
     }
     
     @IBAction func maleBtn(_ sender: Any) {
@@ -121,5 +192,33 @@ class RegisterTableViewCell: UITableViewCell {
         }
     }
     
+//    @IBAction func educationalLevelBtn(_ sender: Any) {
+//        if isStudent {
+//            var actions: [UIAction] = []
+//            for grade in (LogedInUser.shared.grades)! {
+//                let item = UIAction(title: (grade.name)!) { _ in
+//                    self.educationalLevelTextField.text = grade.name
+//                    self.gradeId = grade.id
+//                }
+//                actions.append(item)
+//            }
+//            let captionMenu = UIMenu(title: "", children: actions)
+//            educationalLevelButton.menu = captionMenu
+//            educationalLevelButton.showsMenuAsPrimaryAction = true
+//
+//        } else {
+//            var actions: [UIAction] = []
+//            for material in (LogedInUser.shared.grades)! {
+//                let item = UIAction(title: (material.name)!) { _ in
+//                    self.educationalLevelTextField.text = material.name
+//                    self.materialID = material.id
+//                }
+//                actions.append(item)
+//            }
+//            let captionMenu = UIMenu(title: "", children: actions)
+//            educationalLevelButton.menu = captionMenu
+//            educationalLevelButton.showsMenuAsPrimaryAction = true
+//        }
+//    }
     
 }

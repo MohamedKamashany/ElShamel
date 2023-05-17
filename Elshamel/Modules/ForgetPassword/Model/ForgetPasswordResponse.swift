@@ -10,5 +10,5 @@ import Foundation
 class ForgetPasswordResponse: Codable {
     var data: Int?
     var message: String?
-//    var errors: AnyObject?
+    var errors: [String:[String]]?
 }

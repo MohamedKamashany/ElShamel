@@ -50,6 +50,11 @@ class Video: Codable {
 class Semesters: Codable {
     var first_semester: String?
     var second_semester: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case first_semester = "first_semester"
+        case second_semester = "Second_semester"
+    }
 }
 
 

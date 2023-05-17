@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.6.2)
   - AROTPTextField (0.0.2)
+  - DropDown (2.3.13)
   - Firebase/Core (7.11.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 7.11.0)
@@ -119,11 +120,15 @@ PODS:
   - PlaceholderTextView (0.3.0)
   - PromisesObjC (1.2.12)
   - ReachabilitySwift (5.0.0)
+  - SDWebImage (5.15.1):
+    - SDWebImage/Core (= 5.15.1)
+  - SDWebImage/Core (5.15.1)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - AROTPTextField
+  - DropDown
   - Firebase/Core (~> 7.4)
   - Firebase/Database (~> 7.4)
   - Firebase/Messaging (~> 7.4)
@@ -131,12 +136,14 @@ DEPENDENCIES:
   - MBProgressHUD (~> 1.2.0)
   - PlaceholderTextView
   - ReachabilitySwift (~> 5.0)
+  - SDWebImage
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AROTPTextField
+    - DropDown
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -156,11 +163,13 @@ SPEC REPOS:
     - PlaceholderTextView
     - PromisesObjC
     - ReachabilitySwift
+    - SDWebImage
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   AROTPTextField: f41284a3a223bb39af94c55d255f456de117c111
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseABTesting: e66f1f80747792630d9b292966de206d5df9853b
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
@@ -180,8 +189,9 @@ SPEC CHECKSUMS:
   PlaceholderTextView: ffca9f176be00ab3090e2191e6908dabf3dbdada
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SDWebImage: a254f2c53b46e3fba7946b1f8b8b3eaf00413b92
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: fecb7080761a3ce0b18171a5798923877a02d556
+PODFILE CHECKSUM: 5ccfd1f3d36097461fa30c729f7dd84343168f2e
 
 COCOAPODS: 1.11.3

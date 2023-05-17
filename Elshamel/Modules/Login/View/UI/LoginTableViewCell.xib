@@ -58,7 +58,7 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="نسيت كلمة المرور؟"/>
                         <connections>
-                            <action selector="forgetPasswordBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sEY-Jv-hER"/>
+                            <action selector="forgetPasswordBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DCb-S0-j4b"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n75-zT-cDg">
@@ -95,7 +95,7 @@
                         </constraints>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="او تسجيل الدخول باسم"/>
+                        <buttonConfiguration key="configuration" style="plain" title="أو تسجيل الدخول باستخدام"/>
                         <connections>
                             <action selector="registerWithNameBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zkX-zm-aTl"/>
                         </connections>

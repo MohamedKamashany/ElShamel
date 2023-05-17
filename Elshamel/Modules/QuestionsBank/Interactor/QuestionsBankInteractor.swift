@@ -9,7 +9,8 @@ import Foundation
 
 protocol QuestionsBankInteractorProtocol {
     var presenter: QuestionsBankPresenterProtocol? { get set }
-    func getQuestions(exam_id: Int)
+    func getExamContent(exam_id: Int)
+    func setQuestions(_ questions: [Questions]?)
 }
 
 
@@ -17,20 +18,23 @@ class QuestionsBankInteractor: QuestionsBankInteractorProtocol {
 
     var presenter: QuestionsBankPresenterProtocol?
 
-    func getQuestions(exam_id: Int) {
-        let v4apiKey = "288|wb0QpB8U9l4AJdGxa7eTGkKXQgcZv4V4MmEG1dWr"
+    private var questions: [Questions]?
+    
+    func getExamContent(exam_id: Int) {
+        guard let v4apiKey = LogedInUser.shared.token else { return }
         let headers = ["Authorization": "Bearer \(v4apiKey)"]
         if NetworkManager.shared.isInternetAvailable() {
             presenter?.view?.startLoading()
-            NetworkManager.shared.processReq(url: .getExams,
+            NetworkManager.shared.processReq(url: .getExamContent,
                                              method: .get,
+                                             addedExtra: "\(exam_id)",
                                              returnType: QuestionBankResponse.self, headers: headers) { [weak self] result in
                 self?.presenter?.view?.stopLoading()
                 switch result {
                 case .success(let response):
                     if let data = response {
                         DispatchQueue.main.async {
-                            self?.presenter?.presentSuccessMsg(message: data.message  ?? "")
+                            self?.presenter?.presentQuestions(question: data.data?.questions ?? [])
                         }
                     }else if let errors = response?.errors {
                         if let errorMessage = errors.values.first?.first {
@@ -54,6 +58,10 @@ class QuestionsBankInteractor: QuestionsBankInteractorProtocol {
             presenter?.showError(error)
         }
 
+    }
+    
+    func setQuestions(_ questions: [Questions]?) {
+        self.questions = questions
     }
 
 }

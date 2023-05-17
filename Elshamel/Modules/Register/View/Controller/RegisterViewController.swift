@@ -19,6 +19,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerTableView: UITableView!
     
     var interactor: RegisterInteractorProtocol?
+    var selectedPosition: Position = .student
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,9 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RegisterTableViewCell", for: indexPath) as! RegisterTableViewCell
         cell.delegate = self
+        cell.positionDelegate = self
+        cell.teacherDelegate = self
+        cell.config(with: selectedPosition)
 //        cell.loginBtnClicked = {
 //            self.dismiss(animated: true, completion: nil)
 //        }
@@ -73,15 +77,15 @@ extension RegisterViewController: RegisterTableViewCellDelegate {
                   password: String,
                   confirmPass: String,
                   phone: String,
-                  educationalLevel: String,
-                  gender: String) {
+                  gender: String,
+                  gradeID: Int) {
         interactor?.register(name: name,
                              email: email,
                              password: password,
                              confirmPass: confirmPass,
                              phone: phone,
-                             educationalLevel: educationalLevel,
-                             gender: gender)
+                             gender: gender,
+                             gradeID: gradeID)
     }
     
     
@@ -97,6 +101,7 @@ extension RegisterViewController: RegisterViewProtocol {
         DispatchQueue.main.async {[weak self] in
             guard let view = VerificationConfigurator().createModule() as? VerificationViewController else { return }
             view.email = email
+            view.isStudent = self?.selectedPosition == .student ? true:false
             self?.present(view, animated: true)
         }
     }
@@ -110,5 +115,32 @@ extension RegisterViewController: RegisterViewProtocol {
     }
     
     func hideErrorView() {}
+}
+
+extension RegisterViewController: TeacherRegister {
+    
+    func teacherRegister(name: String,
+                         email: String,
+                         password: String,
+                         confirmPass: String,
+                         phone: String,
+                         gender: String,
+                         materialID: Int) {
+        interactor?.teacherRegister(name: name,
+                                    email: email,
+                                    password: password,
+                                    confirmPass: confirmPass,
+                                    phone: phone,
+                                    gender: gender,
+                                    materialID: materialID)
+    }
+}
+
+extension RegisterViewController:  SelectPositionProtocol {
+    
+    func didPositionSelect(_ position: Position) {
+        selectedPosition = position
+        registerTableView.reloadData()
+    }
 }
 

@@ -6,11 +6,12 @@
 //
 
 import UIKit
-
+import SDWebImage
+import FirebaseDatabase
 
 protocol QuestionsBankViewProtocol: LoaderView, ErrorView {
     var interactor: QuestionsBankInteractorProtocol? { get set }
-    func showSuccessMsg(message: String)
+    func showQuestions(question: [Questions])
 }
 
 
@@ -19,7 +20,7 @@ class QuestionsBankViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var subjectImageView: UIImageView!
     @IBOutlet weak var subjectLbl: UILabel!
     @IBOutlet weak var questionsLbl: UILabel!
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var questionsTableView: UITableView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     
@@ -27,29 +28,34 @@ class QuestionsBankViewController: UIViewController, UITableViewDelegate, UITabl
 //    var questions: [Question] = [
 //        Question(name: "", answers: <#T##[Answer]?#>)
 //    ]
+    var exam: Exams?
+    var questions = [Questions]()
+    var selectedMaterial: Material?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configUI()
         setBtns()
-        interactor?.getQuestions(exam_id: 24)
-        TableView.delegate = self
-        TableView.dataSource = self
-        TableView.register(UINib(nibName: "QuestionsBankTableViewCell", bundle: nil), forCellReuseIdentifier: "QuestionsBankTableViewCell")
-        TableView.rowHeight = UITableView.automaticDimension
+        interactor?.getExamContent(exam_id: exam?.id ?? 0)
+        questionsTableView.delegate = self
+        questionsTableView.dataSource = self
+        questionsTableView.register(UINib(nibName: "AnswersTableViewCell", bundle: nil), forCellReuseIdentifier: "AnswersTableViewCell")
+        questionsTableView.rowHeight = UITableView.automaticDimension
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return questions.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionsBankTableViewCell", for: indexPath) as! QuestionsBankTableViewCell
-        //cell.config()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AnswersTableViewCell", for: indexPath) as! AnswersTableViewCell
+        cell.config(with: questions[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 440
+        return UITableView.automaticDimension
     }
     
     func setBtns() {
@@ -68,6 +74,11 @@ class QuestionsBankViewController: UIViewController, UITableViewDelegate, UITabl
         previousButton.layer.shadowOpacity = 0.4
     }
     
+    func configUI() {
+        subjectLbl.text = selectedMaterial?.name
+        subjectImageView.sd_setImage(with: URL(string: selectedMaterial?.image ?? ""), placeholderImage: UIImage(named: ""))
+    }
+    
     @IBAction func nextBtn(_ sender: Any) {
     }
     
@@ -80,10 +91,11 @@ class QuestionsBankViewController: UIViewController, UITableViewDelegate, UITabl
 
 extension QuestionsBankViewController: QuestionsBankViewProtocol {
     
-    func showSuccessMsg(message: String) {
-        let successMsg = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        successMsg.addAction(UIAlertAction(title: "حسنا", style: .default, handler: nil))
-        present(successMsg, animated: true)
+    func showQuestions(question: [Questions]) {
+        DispatchQueue.main.async {
+            self.questions = question
+            self.questionsTableView.reloadData()
+        }
     }
     
     func showError(with message: String) {

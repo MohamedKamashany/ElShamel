@@ -30,6 +30,8 @@ class MainViewController: UIViewController {
     
     private var sideMenuShadowView: UIView!
     
+    var isStudent: Bool?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.view.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.1294117647, blue: 0.2941176471, alpha: 1)
@@ -76,7 +78,14 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(panGestureRecognizer)
         // ...
         // Default Main View Controller
-        showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
+        //if isStudent == true {
+//        guard let view = StudentConfigurator().createModule() else { return }
+//        present(view, animated: true)
+        showViewController(viewController: StudentViewController.self, storyboardId: "StudentViewController")
+//        }else {
+//            self.showViewController(viewController: TeacherViewController.self, storyboardId: "TeacherViewController")
+        //}
+//        showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
     }
     
     // Call this Button Action from the View Controller you want to Expand/Collapse when you tap a button
@@ -100,34 +109,28 @@ extension MainViewController: SideMenuViewControllerDelegate {
     func selectedCell(_ row: Int) {
         switch row {
         case 0:
-//            // pyament
-            guard let view = QuestionBankConfigurator().createModule() else { return }
-            self.present(view, animated: true)
-        case 1:
 //            // Subscription
             let view = UIStoryboard(name: "Subscription", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionViewController") as! SubscriptionViewController
             self.present(view, animated: true, completion: nil)
-//        case 2:
+        case 1:
 //            // Rate the app
-//            self.showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
-//        case 3:
+            guard let view = StudentConfigurator().createModule() else { return }
+            present(view, animated: true)
+//        case 2:
 //            // Share the app
 //            self.showViewController(viewController: HomeViewController.self, storyboardId: "HomeViewController")
-//        case 4:
+        case 3:
 //            // Property rights
-////            self.showViewController(viewController: StudentViewController.self, storyboardId: "StudentViewController")
-//            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//            let profileModalVC = storyboard.instantiateViewController(withIdentifier: "StudentViewController") as? StudentViewController
-//            present(profileModalVC!, animated: true, completion: nil)
-        case 5:
+            guard let view = PropertyRightsConfigurator().createModule() else { return }
+            present(view, animated: true, completion: nil)
+        case 4:
 //            // SendMessage
             guard let view = SendMessageConfigurator().createModule() else { return }
             self.present(view, animated: true)
-        case 6:
+        case 5:
 ////            // Like us on facebook
 ////            let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/johncodeos")!)
 ////            present(safariVC, animated: true)
-            LogedInUser.shared.userData = nil
             let exitMes = UIAlertController(title: "تسجيل الخروج", message: "" , preferredStyle: .alert)
             exitMes.addAction(UIAlertAction(title: "الغاء", style: .cancel, handler: nil))
             exitMes.addAction(UIAlertAction(title: "خروج", style: .destructive, handler: { _ in

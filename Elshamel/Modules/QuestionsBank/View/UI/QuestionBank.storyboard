@@ -36,7 +36,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="بنك الاسئله" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXq-FU-8Sn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="الامتحان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXq-FU-8Sn">
                                 <rect key="frame" x="217" y="161" width="172" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="172" id="GP2-Yu-toh"/>
@@ -47,11 +47,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-dc-QBl">
-                                <rect key="frame" x="20" y="214" width="374" height="490"/>
+                                <rect key="frame" x="16" y="214" width="382" height="490"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHY-Ro-aKM">
-                                <rect key="frame" x="255" y="744" width="139" height="39"/>
+                                <rect key="frame" x="259" y="744" width="139" height="39"/>
                                 <color key="backgroundColor" red="0.0084140915420000007" green="0.3898709118" blue="0.66401940579999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="EiU-pI-UIW"/>
@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2P-Cg-VzD">
-                                <rect key="frame" x="20" y="744" width="139" height="39"/>
+                                <rect key="frame" x="16" y="744" width="139" height="39"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.75770729780000001" blue="0.95791095500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="nOC-sR-shB"/>
@@ -90,8 +90,8 @@
                             <constraint firstAttribute="trailing" secondItem="xil-gw-7yk" secondAttribute="trailing" id="RmA-Xo-3N2"/>
                             <constraint firstItem="EPO-tr-d1u" firstAttribute="centerX" secondItem="kAX-df-Dig" secondAttribute="centerX" id="Rx4-eC-Bld"/>
                             <constraint firstItem="1nj-vJ-p0X" firstAttribute="centerX" secondItem="kAX-df-Dig" secondAttribute="centerX" id="Tqq-sO-WB1"/>
-                            <constraint firstItem="vRS-fY-pf8" firstAttribute="trailing" secondItem="DmT-dc-QBl" secondAttribute="trailing" constant="20" id="Vcr-qf-W5C"/>
-                            <constraint firstItem="DmT-dc-QBl" firstAttribute="leading" secondItem="vRS-fY-pf8" secondAttribute="leading" constant="20" id="ZgW-0a-Kmq"/>
+                            <constraint firstItem="vRS-fY-pf8" firstAttribute="trailing" secondItem="DmT-dc-QBl" secondAttribute="trailing" constant="16" id="Vcr-qf-W5C"/>
+                            <constraint firstItem="DmT-dc-QBl" firstAttribute="leading" secondItem="vRS-fY-pf8" secondAttribute="leading" constant="16" id="ZgW-0a-Kmq"/>
                             <constraint firstItem="vRS-fY-pf8" firstAttribute="trailing" secondItem="UXq-FU-8Sn" secondAttribute="trailing" constant="25" id="eGc-Ip-FYa"/>
                             <constraint firstItem="UXq-FU-8Sn" firstAttribute="top" secondItem="1nj-vJ-p0X" secondAttribute="bottom" constant="8" id="fWT-1H-Tkp"/>
                             <constraint firstItem="wHY-Ro-aKM" firstAttribute="trailing" secondItem="DmT-dc-QBl" secondAttribute="trailing" id="far-wO-t4R"/>
@@ -102,10 +102,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="TableView" destination="DmT-dc-QBl" id="jSM-aP-hB2"/>
                         <outlet property="nextButton" destination="wHY-Ro-aKM" id="weX-Oe-zlj"/>
                         <outlet property="previousButton" destination="q2P-Cg-VzD" id="ZaC-gT-9ci"/>
                         <outlet property="questionsLbl" destination="UXq-FU-8Sn" id="Pin-yF-fzh"/>
+                        <outlet property="questionsTableView" destination="DmT-dc-QBl" id="cBk-lv-qq0"/>
                         <outlet property="subjectImageView" destination="EPO-tr-d1u" id="mmC-g2-p96"/>
                         <outlet property="subjectLbl" destination="1nj-vJ-p0X" id="pan-Sp-YwO"/>
                     </connections>

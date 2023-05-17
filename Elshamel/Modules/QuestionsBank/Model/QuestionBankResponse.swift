@@ -10,31 +10,9 @@ import Foundation
 
 
 class QuestionBankResponse: Codable {
-    var data: QuestionBankData?
+    var data: Exams?
     var message: String?
     var errors: [String:[String]]?
-}
-
-class QuestionBankData: Codable {
-    var items: [ExamItem]?
-    var has_more_pages: Bool?
-    var current_page: Int?
-    var last_page: Int?
-}
-
-
-class ExamItem: Codable {
-    var id: Int?
-    var student_id: Int?
-    var exam_id: Int?
-    var started_at: String?
-    var finished_at: String?
-    var is_finished: Bool?
-    var is_submitted: Bool?
-    var token: String?
-    var score: Int?
-    var exam: Exams?
-//    var answers: []
 }
 
 
@@ -49,4 +27,35 @@ class Exams: Codable {
     var score: Int?
     var is_free: Bool?
     var classs: String?
+    var questions: [Questions]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case type = "type"
+        case type_label = "type_label"
+        case duration = "duration"
+        case is_taken = "is_taken"
+        case is_submitted = "is_submitted"
+        case score = "score"
+        case is_free = "is_free"
+        case classs = "class"
+        case questions = "questions"
+    }
+}
+
+class Questions: Codable {
+    var id: Int?
+    var title: String?
+    var body: String?
+    var image: String?
+    var answers: [Answers]?
+}
+
+class Answers: Codable {
+    var id: Int?
+    var body: String?
+    var image: String?
+    var is_correct: Bool?
+    var is_selected: Bool?
 }

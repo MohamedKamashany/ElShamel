@@ -26,23 +26,11 @@ class ForgetPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        config()
         setTxtAndBtn()
-//        interactor?.getCode()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-    }
-    
-    private func config() {
-        let presenter = ForgetPasswordPresenter()
-        presenter.view = self
-
-        let interactor = ForgetPasswordInteractor()
-        interactor.presenter = presenter
-
-        self.interactor = interactor
     }
     
     func setTxtAndBtn() {
@@ -74,6 +62,9 @@ class ForgetPasswordViewController: UIViewController {
         }
     }
     
+    @IBAction func backBtn(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }
 
 
@@ -81,7 +72,11 @@ extension ForgetPasswordViewController: ForgetPasswordViewProtocol {
     
     func showSuccessMessage(with message: String) {
         let successMessage = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
-        successMessage.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        successMessage.addAction(UIAlertAction(title: "اوك", style: .cancel, handler: { _ in
+            guard let view = ResetPasswordConfigurator().createModule() as? ResetPasswordViewController else { return }
+            view.email = self.emailTxt.text
+            self.present(view, animated: true, completion: nil)
+        }))
         present(successMessage, animated: true, completion: nil)
     }
     

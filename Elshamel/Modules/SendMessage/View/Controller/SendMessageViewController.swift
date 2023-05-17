@@ -68,6 +68,10 @@ class SendMessageViewController: UIViewController {
         interactor?.sendMessage(title: title, body: body)
     }
     
+    @IBAction func backBtn(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
 }
 
 

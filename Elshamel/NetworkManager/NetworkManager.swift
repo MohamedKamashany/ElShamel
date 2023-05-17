@@ -35,11 +35,22 @@ class NetworkManager {
 // MARK: - process api reqest
 
 extension NetworkManager {
-    func processReq<T: Codable>(url: EndPointUrls, method: HTTPMethod, bodyParams:[String:String]? = nil, returnType: T.Type, headers: [String: String]? = nil, params: Alamofire.Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, completionHandler: @escaping (Swift.Result<T?, NetWorkError>) -> Void) {
+    func processReq<T: Codable>(url: EndPointUrls,
+                                method: HTTPMethod,
+                                addedExtra: String? = nil,
+                                bodyParams:[String:String]? = nil,
+                                returnType: T.Type,
+                                headers: [String: String]? = nil,
+                                params: Alamofire.Parameters? = nil,
+                                encoding: ParameterEncoding = URLEncoding.default,
+                                completionHandler: @escaping (Swift.Result<T?, NetWorkError>) -> Void) {
 
         if isInternetAvailable() {
             let params = method == .post ? nil : bodyParams
-            let fullUrl = NetworkManager.shared.getFullUrl(baseUrl: BasUrls.base, endPoint: url, parameters: params)
+            let fullUrl = NetworkManager.shared.getFullUrl(baseUrl: BasUrls.base,
+                                                           endPoint: url,
+                                                           parameters: params,
+                                                           addedExtra: addedExtra)
 
             var request = URLRequest(url: URL(string: fullUrl)!,timeoutInterval: 60)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -76,8 +87,8 @@ extension NetworkManager {
                     return
                 }
                 print(String(data: data, encoding: .utf8)!)
-                if let response = try? JSONDecoder().decode(T.self, from: data){
-                    completionHandler(.success(response))
+                if let decodedResponse = try? JSONDecoder().decode(T.self, from: data){
+                    completionHandler(.success(decodedResponse))
                 }else{
                     completionHandler(.failure(.init(errorType: .couldNotParseJson)))
                 }
@@ -141,8 +152,15 @@ extension NetworkManager {
 }
 
 extension NetworkManager {
-    func getFullUrl(baseUrl: String, endPoint: EndPointUrls, parameters: [String: String]? = nil) -> String {
-        let urlString = "\(baseUrl)\(endPoint.rawValue)"
+    func getFullUrl(baseUrl: String,
+                    endPoint: EndPointUrls,
+                    parameters: [String: String]? = nil,
+                    addedExtra: String? = nil) -> String {
+        var urlString = "\(baseUrl)\(endPoint.rawValue)"
+        if let addedExtra = addedExtra {
+            urlString.append("/")
+            urlString.append(addedExtra)
+        }
         var components = URLComponents()
         components.path = urlString
         components.queryItems = []
@@ -150,7 +168,7 @@ extension NetworkManager {
             for key in params.keys {
                 components.queryItems?.append(URLQueryItem(name: key, value: params[key]!))
             }
-            //return (components.url?.absoluteString.removingPercentEncoding?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? urlString)
+            return (components.url?.absoluteString.removingPercentEncoding?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? urlString)
         }
         return urlString
     }

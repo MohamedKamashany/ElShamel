@@ -24,13 +24,18 @@ enum EndPointUrls: String {
     
     case generateToken = "generate_token/"
     case login = "auth/login"
-    case register = "teacher/auth/register"
-    case verify = "teacher/auth/verify"
+    case register = "student/auth/register"
+    case verify = "student/auth/verify"
+    case teacherRegister = "teacher/auth/register"
+    case teacherVerify = "teacher/auth/verify"
     case forgetPassword = "auth/reset-password-code"
+    case resetPassword = "auth/reset-password"
     case plans = "student/plans"
     case sendMessage = "messages"
     case examsStart = "student/exams/start"
-    case getExams = "student/exams/student-exams"
+    case getExamContent = "student/exams"
+    case getMaterials = "student/material-contents/admin"
+    case getChapterContent = "student/chapters"
 }
 
 class BasUrls {

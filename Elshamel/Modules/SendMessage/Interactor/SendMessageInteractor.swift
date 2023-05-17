@@ -18,7 +18,7 @@ class SendMessageInteractor: SendMessageInteractorProtocol {
     var presenter: SendMessagePresenterProtocol?
     
     func sendMessage(title: String, body: String) {
-        let v4apiKey = "282|UxvoMT68nvLqpFfW1roVcJmadDGfEeHz7Yx6bO4R"
+        guard let v4apiKey = LogedInUser.shared.token else { return }
         let headers = ["Authorization": "Bearer \(v4apiKey)"]
         let parameters = ["title": title,
                           "body": body]

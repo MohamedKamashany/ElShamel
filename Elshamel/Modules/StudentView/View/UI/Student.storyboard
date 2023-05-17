@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Student View Controller-->
+        <scene sceneID="VF2-vv-ANU">
+            <objects>
+                <viewController storyboardIdentifier="StudentViewController" modalPresentationStyle="fullScreen" id="N7n-Nu-ksz" customClass="StudentViewController" customModule="Elshamel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jb7-p9-f7z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="Onc-y0-sk1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="sno-bx-aFF">
+                                <rect key="frame" x="137" y="44" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="7Uo-9m-2Xw"/>
+                                    <constraint firstAttribute="width" constant="140" id="FMz-an-U00"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="أهلا أحمد" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1m-g4-UhY">
+                                <rect key="frame" x="321" y="176" width="77" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="TbK-jQ-vfj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="hLB-Bv-N6q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQU-l1-IAo">
+                                <rect key="frame" x="16" y="170" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TZZ-LD-1NM"/>
+                                    <constraint firstAttribute="width" constant="50" id="e0E-a3-udD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Icon feather-menu"/>
+                                <connections>
+                                    <action selector="sideMenuBtn:" destination="N7n-Nu-ksz" eventType="touchUpInside" id="duK-ny-izL"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OTB-3r-e5M">
+                                <rect key="frame" x="0.0" y="230" width="398" height="604"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="kX7-cb-aYC">
+                                <rect key="frame" x="28" y="844" width="53" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="alarm clock (2)"/>
+                                <connections>
+                                    <action selector="notificationBtn:" destination="N7n-Nu-ksz" eventType="touchUpInside" id="lVR-JH-9LL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WEf-Iw-r7I"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Onc-y0-sk1" secondAttribute="bottom" id="2oz-Pa-d6T"/>
+                            <constraint firstItem="Onc-y0-sk1" firstAttribute="leading" secondItem="WEf-Iw-r7I" secondAttribute="leading" id="AVp-ut-DHm"/>
+                            <constraint firstAttribute="trailing" secondItem="Onc-y0-sk1" secondAttribute="trailing" id="EhM-Lv-l4Q"/>
+                            <constraint firstItem="WEf-Iw-r7I" firstAttribute="trailing" secondItem="w1m-g4-UhY" secondAttribute="trailing" constant="16" id="HR8-H7-3KU"/>
+                            <constraint firstItem="kX7-cb-aYC" firstAttribute="top" secondItem="OTB-3r-e5M" secondAttribute="bottom" constant="10" id="Zmr-jX-dtZ"/>
+                            <constraint firstItem="OTB-3r-e5M" firstAttribute="top" secondItem="eQU-l1-IAo" secondAttribute="bottom" constant="10" id="bG2-9S-d9i"/>
+                            <constraint firstItem="Onc-y0-sk1" firstAttribute="top" secondItem="jb7-p9-f7z" secondAttribute="top" id="h6s-m3-rbN"/>
+                            <constraint firstItem="OTB-3r-e5M" firstAttribute="leading" secondItem="WEf-Iw-r7I" secondAttribute="leading" id="mYZ-yq-6i9"/>
+                            <constraint firstItem="OTB-3r-e5M" firstAttribute="trailing" secondItem="w1m-g4-UhY" secondAttribute="trailing" id="mpD-Q3-0Qw"/>
+                            <constraint firstItem="eQU-l1-IAo" firstAttribute="top" secondItem="WEf-Iw-r7I" secondAttribute="top" constant="126" id="nKh-FX-dWN"/>
+                            <constraint firstItem="sno-bx-aFF" firstAttribute="top" secondItem="WEf-Iw-r7I" secondAttribute="top" id="o5O-ys-yhc"/>
+                            <constraint firstItem="eQU-l1-IAo" firstAttribute="leading" secondItem="WEf-Iw-r7I" secondAttribute="leading" constant="16" id="o6F-mN-7r4"/>
+                            <constraint firstItem="w1m-g4-UhY" firstAttribute="top" secondItem="WEf-Iw-r7I" secondAttribute="top" constant="132" id="pZ3-dP-TQe"/>
+                            <constraint firstItem="sno-bx-aFF" firstAttribute="centerX" secondItem="jb7-p9-f7z" secondAttribute="centerX" id="tLM-DN-M2F"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="GF7-ac-Mdc"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="Onc-y0-sk1" id="GFS-S7-EwI"/>
+                        <outlet property="logoImageView" destination="sno-bx-aFF" id="JdX-Xp-Hb4"/>
+                        <outlet property="notificationButton" destination="kX7-cb-aYC" id="E3g-kP-cox"/>
+                        <outlet property="sideMenuButton" destination="eQU-l1-IAo" id="A5C-RK-Cru"/>
+                        <outlet property="studentNameLbl" destination="w1m-g4-UhY" id="sWL-Dk-AFv"/>
+                        <outlet property="studentTableView" destination="OTB-3r-e5M" id="SKg-fu-Go8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="04v-p8-Zhf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="339" y="162"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon feather-menu" width="30" height="21"/>
+        <image name="Image" width="344" height="344"/>
+        <image name="Image-1" width="414" height="899.5"/>
+        <image name="alarm clock (2)" width="68" height="68"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

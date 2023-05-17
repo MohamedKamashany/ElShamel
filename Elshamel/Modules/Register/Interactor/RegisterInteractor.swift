@@ -12,7 +12,8 @@ import Alamofire
 
 protocol RegisterInteractorProtocol {
     var presenter: RegisterPresenterProtocol? { get set }
-    func register(name: String, email: String, password: String, confirmPass: String, phone: String, educationalLevel: String, gender: String)
+    func register(name: String, email: String, password: String, confirmPass: String, phone: String, gender: String, gradeID: Int)
+    func teacherRegister(name: String, email: String, password: String, confirmPass: String, phone: String, gender: String, materialID: Int)
 }
 
 
@@ -26,8 +27,8 @@ class RegisterInteractor: RegisterInteractorProtocol {
                   password: String,
                   confirmPass: String,
                   phone: String,
-                  educationalLevel: String,
-                  gender: String) {
+                  gender: String,
+                  gradeID: Int) {
         guard !name.isEmpty else {
             presenter?.showError(NetWorkError(errorType: ElShamelErrorType.validationError("لا يوجد اسم")))
             return
@@ -66,7 +67,7 @@ class RegisterInteractor: RegisterInteractorProtocol {
                           "gender": gender,
                           "password": password,
                           "password_confirmation": confirmPass,
-                          "material_id": "1",
+                          "grade_id": "\(gradeID)",
                           "device_id": "device_token",
                           "login_method": "",
                           "fcm_token": "ahjdkjashdkjasd"]
@@ -95,6 +96,91 @@ class RegisterInteractor: RegisterInteractorProtocol {
                          self?.presenter?.showError(NetWorkError(errorType: ElShamelErrorType.serverError))
                      }
                  }else {
+                    self?.presenter?.showError(NetWorkError(errorType: ElShamelErrorType.serverError))
+                }
+                
+                break
+            case.failure(let error):
+                print(error)
+                break
+            }
+        }
+    }
+    
+    func teacherRegister(name: String,
+                         email: String,
+                         password: String,
+                         confirmPass: String,
+                         phone: String,
+                         gender: String,
+                         materialID: Int) {
+        guard !name.isEmpty else {
+            presenter?.showError(NetWorkError(errorType: ElShamelErrorType.validationError("لا يوجد اسم")))
+            return
+        }
+        
+        guard !email.isEmpty else {
+            presenter?.showError(NetWorkError(errorType: ElShamelErrorType.validationError("لا يوجد بريد الكتروني")))
+            return
+        }
+        
+        guard !password.isEmpty, password.count >= 8 else {
+            presenter?.showError(NetWorkError(errorType: ElShamelErrorType.validationError("لا يوجد باسورد")))
+            return
+        }
+        
+        guard confirmPass == password else {
+            presenter?.showError(NetWorkError(errorType: ElShamelErrorType.validationError("الباسورد وتاكيد الباسورد غير متشابهين")))
+            return
+        }
+        
+        //        guard !phone.isEmpty else {
+        //            print("empty phone")
+        //            return
+        //        }
+        
+        //        guard !educationalLevel.isEmpty else {
+        //presenter?.showError(NetWorkError(errorType: ElShamelErrorType.validationError("")))
+        //            print("educantion is empty")
+        //            return
+        //        }
+        presenter?.view?.startLoading()
+        let headers: [String: String] = ["Accept": "application/json"]
+        let parameters = ["name": name,
+                          "email": email,
+                          "phone": phone,
+                          "gender": gender,
+                          "password": password,
+                          "password_confirmation": confirmPass,
+                          "material_id": "\(materialID)",
+                          "device_id": "device_token",
+                          "login_method": "",
+                          "fcm_token": "ahjdkjashdkjasd"]
+        NetworkManager.shared.processReq(url: .teacherRegister,
+                                         method: .post,
+                                         bodyParams: parameters,
+                                         returnType: RegisterResponse.self,
+                                         headers: headers) { [weak self] result in
+            
+            self?.presenter?.view?.stopLoading()
+            switch result {
+            case.success(let response):
+                if let data = response?.data {
+                    DispatchQueue.main.async {
+                        //LogedInUser.shared.userData = data.account
+                        LogedInUser.shared.token = data.token
+                        if let userMail = data.account?.email {
+                            self?.presenter?.presentVerificationView(for: userMail)
+                        }
+                        print(response?.message ?? "")
+                    }
+                }else if let errors = response?.errors {
+                    if let errorMessage = errors.values.first?.first {
+                        self?.presenter?.showError(NetWorkError(errorType: ElShamelErrorType.backendError(errorMessage)))
+                    }else{
+                        self?.presenter?.showError(NetWorkError(errorType: ElShamelErrorType.serverError))
+                    }
+                }else {
                     self?.presenter?.showError(NetWorkError(errorType: ElShamelErrorType.serverError))
                 }
                 

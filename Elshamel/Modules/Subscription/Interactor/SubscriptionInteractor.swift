@@ -44,7 +44,7 @@ class SubscriptionInteractor: SubscriptionInteractorProtocol {
     
     func getSubscriptionData() {
         presenter?.view?.startLoading()
-        let v4apiKey = "258|4HTnAgBreqBYumlfplJOxWqLzCtfAqwaralquOr4"
+        guard let v4apiKey = LogedInUser.shared.token else { return }
         let headers = ["Authorization": "Bearer \(v4apiKey)"]
         NetworkManager.shared.processReq(url: .plans,
                                          method: .get,
@@ -63,26 +63,5 @@ class SubscriptionInteractor: SubscriptionInteractorProtocol {
             }
         }
     }
-    
-    
-//    func getSubscriptionData() {
-//        guard let url = URL(string: "https://elshamel.site/api/student/plans") else { return }
-//        var request = URLRequest(url: url)
-//        request.method = .get
-//        let token = "222|WZKs8BeubiG0McFonUtMhSfduEU3ueps5wcLMEJR"
-//        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let data = data {
-//                do {
-//                    let subscriper = try? JSONDecoder().decode(SubscriptionResponse.self, from: data)
-//                    DispatchQueue.main.async {
-//                        self.presenter?.presentSuccessMsg(msg: subscriper?.message ?? "")
-//                    }
-//                }
-//            }else{
-//                print("error")
-//            }
-//        }
-//        task.resume()
-//    }
+
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SDWebImage
+
 
 class QuestionsBankTableViewCell: UITableViewCell {
     
@@ -24,13 +26,10 @@ class QuestionsBankTableViewCell: UITableViewCell {
     @IBOutlet weak var stacView: UIStackView!
     
     var unchecked = true
-    let optionsName: [String] = ["الألم بحد ذاته ممتع ، لقد كان أسهل ، لكن كان من الأسهل التخلص من حادثة عصب الأذن ؟",
-                                 "الألم بحد ذاته ممتع ، لقد كان أسهل ، لكن كان من الأسهل التخلص من حادثة عصب الأذن ؟",
-                                 "الألم بحد ذاته ممتع ، لقد كان أسهل ، لكن كان من الأسهل التخلص من حادثة عصب الأذن ؟"]
+    var optionsName = [Answers]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        config() 
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,14 +37,20 @@ class QuestionsBankTableViewCell: UITableViewCell {
     }
     
     func config() {
-        for index in 0..<3 {
-            if let selectItem = AnswerLableTableViewCell.commonInit() {
+        stacView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+        for index in 0..<optionsName.count {
+            if let selectItem = AnswerLableView.commonInit() {
                 selectItem.config(with: optionsName[index])
                 stacView.addArrangedSubview(selectItem)
             }
         }
     }
     
+    func setQuestions(_ questions: Questions?) {
+        questionNameLbl.text = questions?.title
+        questionLbl.text = questions?.body
+        self.optionsName = questions?.answers ?? []
+    }
     
     
     

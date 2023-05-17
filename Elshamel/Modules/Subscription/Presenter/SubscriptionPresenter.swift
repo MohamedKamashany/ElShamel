@@ -23,6 +23,5 @@ class SubscriptionPresenter: SubscriptionPresenterProtocol {
     
     func presentPlans(plans: [PlansData]) {
         view?.plansView(palns: plans)
-        print(plans)
     }
 }

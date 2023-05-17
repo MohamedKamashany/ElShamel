@@ -11,7 +11,7 @@ import Foundation
 
 protocol QuestionsBankPresenterProtocol {
     var view: QuestionsBankViewProtocol? { get set }
-    func presentSuccessMsg(message: String)
+    func presentQuestions(question: [Questions])
     func showError(_ error: NetWorkError)
 }
 
@@ -19,8 +19,8 @@ class QuestionsBankPresenter: QuestionsBankPresenterProtocol {
     
     var view: QuestionsBankViewProtocol?
     
-    func presentSuccessMsg(message: String) {
-        view?.showSuccessMsg(message: message)
+    func presentQuestions(question: [Questions]) {
+        view?.showQuestions(question: question)
     }
     
     func showError(_ error: NetWorkError) {

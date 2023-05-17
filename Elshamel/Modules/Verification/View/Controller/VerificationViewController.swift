@@ -20,6 +20,7 @@ class VerificationViewController: UIViewController, UITableViewDelegate, UITable
     
     var interactor: VerificationInteractorProtocol?
     var email:String?
+    var isStudent: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ extension VerificationViewController: VerificationViewProtocol {
     func showHomeScreen() {
         DispatchQueue.main.async {
             let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            view.isStudent = self.isStudent
             self.present(view, animated: true)
         }
     }

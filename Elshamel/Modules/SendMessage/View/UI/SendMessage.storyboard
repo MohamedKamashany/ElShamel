@@ -47,7 +47,6 @@
                                 <color key="backgroundColor" red="0.90020376440000005" green="0.96487754579999996" blue="0.96949154140000005" alpha="0.48750082859999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="aX3-UP-WMw"/>
-                                    <constraint firstAttribute="width" constant="368" id="e1N-OY-EZQ"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -67,6 +66,18 @@
                                     <action selector="sendBtn:" destination="ZdJ-S8-LfY" eventType="touchUpInside" id="cwo-SQ-8ZY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIK-Jm-EFu">
+                                <rect key="frame" x="20" y="76" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Uga-KU-Ti7"/>
+                                    <constraint firstAttribute="width" constant="38" id="dRp-y6-UUO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="back"/>
+                                <connections>
+                                    <action selector="backBtn:" destination="ZdJ-S8-LfY" eventType="touchUpInside" id="pkR-pA-fFI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="64q-5a-Zn4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,6 +89,7 @@
                             <constraint firstItem="zF5-dN-5Wz" firstAttribute="centerX" secondItem="gJE-EQ-IKo" secondAttribute="centerX" id="5rL-qL-4LA"/>
                             <constraint firstItem="UaO-qS-xnf" firstAttribute="top" secondItem="KSi-Sq-hQi" secondAttribute="bottom" constant="31" id="6cA-VN-DQB"/>
                             <constraint firstAttribute="bottom" secondItem="b16-iD-b3j" secondAttribute="bottom" id="Fi6-pD-Zwy"/>
+                            <constraint firstItem="uIK-Jm-EFu" firstAttribute="leading" secondItem="64q-5a-Zn4" secondAttribute="leading" constant="20" id="FjE-j9-mzo"/>
                             <constraint firstItem="yQl-qz-VPI" firstAttribute="centerX" secondItem="gJE-EQ-IKo" secondAttribute="centerX" id="G8L-Sf-yn8"/>
                             <constraint firstItem="KSi-Sq-hQi" firstAttribute="trailing" secondItem="nt7-dV-QcR" secondAttribute="trailing" id="LW9-t3-L23"/>
                             <constraint firstItem="KSi-Sq-hQi" firstAttribute="leading" secondItem="nt7-dV-QcR" secondAttribute="leading" id="NKQ-cS-FHt"/>
@@ -87,6 +99,7 @@
                             <constraint firstItem="nt7-dV-QcR" firstAttribute="leading" secondItem="64q-5a-Zn4" secondAttribute="leading" constant="30" id="m5A-B5-tlM"/>
                             <constraint firstItem="zF5-dN-5Wz" firstAttribute="top" secondItem="64q-5a-Zn4" secondAttribute="top" constant="32" id="tTW-bg-ePa"/>
                             <constraint firstItem="b16-iD-b3j" firstAttribute="trailing" secondItem="64q-5a-Zn4" secondAttribute="trailing" id="yQa-Ar-FS2"/>
+                            <constraint firstItem="uIK-Jm-EFu" firstAttribute="top" secondItem="zF5-dN-5Wz" secondAttribute="top" id="ycJ-0z-Fvv"/>
                         </constraints>
                     </view>
                     <connections>
@@ -105,6 +118,7 @@
     </scenes>
     <resources>
         <image name="Image-1" width="414" height="899.5"/>
+        <image name="back" width="14" height="24"/>
         <image name="icn_sent 2" width="89" height="89"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
